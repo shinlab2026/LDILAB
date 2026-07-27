@@ -69,7 +69,17 @@ function renderPublications(publications) {
 
           ${pub.tags ? `
             <div class="publication-tags">
-              ${pub.tags.split(";").map(tag => `<span>${escapeHTML(tag.trim())}</span>`).join("")}
+              ${pub.tags.split(";").map(tag => {
+                const cleanTag = tag.trim();
+                const tagClass =
+                  cleanTag.toUpperCase() === "SSCI" ? "tag-ssci" : "";
+          
+                return `
+                  <span class="${tagClass}">
+                    ${escapeHTML(cleanTag)}
+                  </span>
+                `;
+              }).join("")}
             </div>
           ` : ""}
         </article>
