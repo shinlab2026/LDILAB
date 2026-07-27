@@ -566,6 +566,12 @@ a {
   border-bottom: 2px solid var(--green);
 }
 
+.publication-tags .tag-ssci {
+  background-color: #fde8e8;
+  color: #a94442;
+  border: 1px solid #f5c2c2;
+}
+
 .publication-tags {
   display: flex;
   gap: 8px;
