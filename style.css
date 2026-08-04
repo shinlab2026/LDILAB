@@ -352,30 +352,180 @@ a {
   background: var(--bg);
 }
 
-.publication-box {
+/* 필터 버튼 */
+.publication-controls {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: 26px;
+}
+
+.filter-btn {
+  border: 1px solid var(--navy);
+  background: transparent;
+  color: var(--navy-dark);
+  padding: 7px 13px;
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.filter-btn.active,
+.filter-btn:hover {
+  background: var(--navy);
+  color: white;
+}
+
+/* 연도별 실적 목록 */
+.publications-list {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.publication-year {
+  margin: 0 0 14px;
+  padding-bottom: 7px;
+  border-bottom: 2px solid var(--navy-dark);
+  color: var(--navy-dark);
+  font-size: 26px;
+  line-height: 1.2;
+}
+
+/* 개별 실적 카드 */
+.publication-item {
   background: white;
   border: 1px solid var(--line);
-  border-radius: 24px;
-  padding: 36px;
+  border-radius: 14px;
+  padding: 18px 22px;
+  margin-bottom: 10px;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    border-color 0.2s ease;
 }
 
-/* Contact */
+.publication-item:hover {
+  transform: translateY(-1px);
+  border-color: var(--accent);
+  box-shadow: 0 8px 20px rgba(2, 23, 67, 0.06);
+}
 
-.contact-section {
+/* 논문 유형 및 게재 상태 */
+.publication-meta {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+  margin-bottom: 7px;
+}
+
+.publication-meta span {
+  display: inline-flex;
+  align-items: center;
+  padding: 3px 8px;
+  border-radius: 999px;
   background: var(--navy-light);
+  color: var(--navy-dark);
+  font-size: 11px;
+  line-height: 1.4;
+  font-weight: 800;
 }
 
-.contact-box {
-  background: var(--navy-dark);
-  color: white;
-  border-radius: 32px;
-  padding: 56px;
+/* 논문 제목 */
+.publication-item h4 {
+  margin: 0 0 7px;
+  color: var(--navy-dark);
+  font-size: 19px;
+  line-height: 1.32;
+  letter-spacing: -0.02em;
 }
 
-.contact-box .section-kicker,
-.contact-box h2,
-.contact-box p {
-  color: white;
+/* 저자 및 학술지 */
+.publication-authors,
+.publication-venue {
+  margin: 2px 0;
+  font-size: 14px;
+  line-height: 1.45;
+}
+
+.publication-authors {
+  color: #334155;
+}
+
+.publication-venue {
+  color: var(--muted);
+  font-style: italic;
+}
+
+/* DOI와 태그를 같은 줄에 배치 */
+.publication-links {
+  display: inline-flex;
+  gap: 10px;
+  margin: 8px 12px 0 0;
+  vertical-align: middle;
+}
+
+.publication-links a {
+  color: var(--navy);
+  border-bottom: 1px solid var(--navy);
+  font-size: 13px;
+  line-height: 1.4;
+  font-weight: 800;
+}
+
+.publication-tags {
+  display: inline-flex;
+  gap: 6px;
+  flex-wrap: wrap;
+  margin-top: 8px;
+  vertical-align: middle;
+}
+
+.publication-tags span {
+  padding: 3px 8px;
+  border-radius: 999px;
+  background: #eef3fb;
+  color: #31415f;
+  font-size: 10px;
+  line-height: 1.4;
+}
+
+/* SSCI 태그 색상 유지 */
+.publication-tags .tag-ssci {
+  background-color: #fde8e8;
+  color: #a94442;
+  border: 1px solid #f5c2c2;
+}
+
+.error-message {
+  color: #a33;
+  font-weight: 700;
+}
+
+/* 모바일 */
+@media (max-width: 620px) {
+  .publication-controls {
+    margin-bottom: 20px;
+  }
+
+  .publication-year {
+    font-size: 23px;
+  }
+
+  .publication-item {
+    padding: 16px;
+    border-radius: 12px;
+  }
+
+  .publication-item h4 {
+    font-size: 17px;
+  }
+
+  .publications-section .publication-authors,
+  .publications-section .publication-venue {
+    font-size: 13px;
+  }
 }
 
 /* Footer */
