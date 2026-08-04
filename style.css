@@ -491,7 +491,7 @@ a {
   line-height: 1.4;
 }
 
-/* SSCI 태그 색상 유지 */
+/* SSCI 태그 색상 */
 .publication-tags .tag-ssci {
   background-color: #fde8e8;
   color: #a94442;
@@ -650,102 +650,6 @@ a {
   gap: 44px;
 }
 
-.publication-year {
-  font-size: 32px;
-  color: var(--navy-dark);
-  margin: 0 0 20px;
-  border-bottom: 2px solid var(--navy-dark);
-  padding-bottom: 10px;
-}
-
-.publication-item {
-  background: white;
-  border: 1px solid var(--line);
-  border-radius: 22px;
-  padding: 28px;
-  margin-bottom: 18px;
-  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
-}
-
-.publication-item:hover {
-  transform: translateY(-2px);
-  border-color: var(--accent);
-  box-shadow: 0 14px 34px rgba(2, 23, 67, 0.08);
-}
-
-.publication-meta {
-  display: flex;
-  gap: 8px;
-  flex-wrap: wrap;
-  margin-bottom: 12px;
-}
-
-.publication-meta span {
-  display: inline-flex;
-  padding: 5px 10px;
-  border-radius: 999px;
-  background: var(--navy-light);
-  color: var(--navy-dark);
-  font-size: 12px;
-  font-weight: 800;
-}
-
-.publication-item h4 {
-  margin: 0 0 12px;
-  font-size: 24px;
-  line-height: 1.25;
-  letter-spacing: -0.03em;
-  color: var(--navy-dark);
-}
-
-.publication-authors,
-.publication-venue {
-  margin: 6px 0;
-  font-size: 16px;
-}
-
-.publication-venue {
-  font-style: italic;
-  color: var(--muted);
-}
-
-.publication-links {
-  display: flex;
-  gap: 12px;
-  margin-top: 16px;
-}
-
-.publication-links a {
-  font-weight: 800;
-  color: var(--navy);
-  border-bottom: 2px solid var(--navy);
-}
-
-.publication-tags .tag-ssci {
-  background-color: #fde8e8;
-  color: #a94442;
-  border: 1px solid #f5c2c2;
-}
-
-.publication-tags {
-  display: flex;
-  gap: 8px;
-  flex-wrap: wrap;
-  margin-top: 18px;
-}
-
-.publication-tags span {
-  background: #eef3fb;
-  color: #31415f;
-  padding: 5px 9px;
-  border-radius: 999px;
-  font-size: 12px;
-}
-
-.error-message {
-  color: #a33;
-  font-weight: 700;
-}
 
 /* 구성원 그룹 */
 .member-group {
@@ -955,11 +859,11 @@ a {
   }
 
   4% {
-    width: 6ch;
+    width: 8ch;
   }
 
   12% {
-    width: 6ch;
+    width: 8ch;
   }
 
   16.66% {
