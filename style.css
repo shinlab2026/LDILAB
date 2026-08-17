@@ -115,23 +115,21 @@ a {
   color: var(--navy);
 }
 
-.hero h1 {
-  margin: 0;
-  max-width: 900px;
-  font-family: "Montserrat", "Noto Sans KR", sans-serif;
-  font-size: clamp(54px, 8vw, 100px);
+/* 랩 이름 - 키우기 */
+.hero .eyebrow {
+  margin-bottom: 20px;
+  font-size: 18px;
   font-weight: 800;
-  line-height: 0.98;
-  letter-spacing: -0.055em;
-  color: var(--navy-dark);
+  letter-spacing: 0.08em;
 }
 
-.hero .eyebrow {
-  margin-bottom: 14px;
-  font-family: "Montserrat", "Noto Sans KR", sans-serif;
-  font-size: 11px;
-  font-weight: 600;
-  letter-spacing: 0.1em;
+.hero h1 {
+  margin: 0;
+  max-width: 850px;
+  font-size: clamp(40px, 5vw, 64px);
+  line-height: 1.05;
+  letter-spacing: -0.05em;
+  color: var(--navy-dark);
 }
 
 .hero-description {
