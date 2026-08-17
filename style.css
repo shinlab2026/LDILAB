@@ -632,8 +632,13 @@ a {
   }
 
   .hero h1 {
-    font-size: 50px;
+    font-size: 36px;
   }
+
+  .hero .eyebrow {
+    font-size: 14px;
+  }
+}
 
   .hero-description {
     font-size: 17px;
