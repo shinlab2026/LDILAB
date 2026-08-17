@@ -116,8 +116,5 @@ function escapeHTML(text) {
     return escapeHTML(authors)
       .replaceAll("Yoonhee Shin", "<strong>Yoonhee Shin</strong>")
       .replaceAll("신윤희", "<strong>신윤희</strong>");
-      .replaceAll("Yoonhee Shin*", "<strong>Yoonhee Shin*</strong>")
-      .replaceAll("신윤희*", "<strong>신윤희*</strong>");
-}
-}
+    }
 }
