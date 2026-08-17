@@ -5,9 +5,22 @@
   --text: #111827;
   --muted: #64748b;
   --line: #d9e2f0;
+
+  /* Main */
   --navy: #032060;
   --navy-dark: #021743;
   --navy-light: #e8eef9;
+
+  /* Point 01 - Teal */
+  --teal: #18a6a6;
+  --teal-dark: #0d7f82;
+  --teal-light: #e3f5f4;
+
+  /* Point 02 - Orange */
+  --orange: #f28c28;
+  --orange-dark: #d96f0f;
+  --orange-light: #fff1e3;
+
   --accent: #bfd0f2;
   --card: #ffffff;
   --max-width: 1180px;
@@ -92,8 +105,21 @@ a {
   align-items: center;
   padding: 80px 0;
   background:
-    radial-gradient(circle at top right, rgba(3, 32, 96, 0.18), transparent 38%),
-    linear-gradient(180deg, #f7f9fc 0%, #edf2fb 100%);
+    radial-gradient(
+      circle at 82% 25%,
+      rgba(242, 140, 40, 0.08),
+      transparent 24%
+    ),
+    radial-gradient(
+      circle at top right,
+      rgba(24, 166, 166, 0.10),
+      transparent 38%
+    ),
+    linear-gradient(
+      180deg,
+      #f7f9fc 0%,
+      #edf2fb 100%
+    );
 }
 
 /* Hero Lab Image */
@@ -185,6 +211,7 @@ a {
 
 .btn-primary:hover {
   background: var(--navy-dark);
+  box-shadow: 0 10px 26px rgba(242, 140, 40, 0.18);
 }
 
 .btn-secondary {
@@ -290,32 +317,31 @@ a {
   border-bottom: 1px solid #d9dde5;
 }
 
-.research-icon,
-.project-icon {
+.section-kicker {
+  color: var(--teal);
+}
+
+.research-icon {
+  width: 46px;
+  height: 46px;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
+
+  border-radius: 50%;
+  background: var(--teal-light);
 }
 
 .research-icon .material-symbols-outlined {
-  font-size: 30px;
-  color: var(--navy);
+  font-size: 26px;
+  color: var(--teal-dark);
+
   font-variation-settings:
     'FILL' 0,
     'wght' 400,
     'GRAD' 0,
     'opsz' 32;
-}
-
-.project-icon .material-symbols-outlined {
-  font-size: 34px;
-  color: var(--navy);
-  font-variation-settings:
-    'FILL' 0,
-    'wght' 400,
-    'GRAD' 0,
-    'opsz' 36;
 }
 
 .research-item p {
@@ -325,8 +351,6 @@ a {
   font-weight: 600;
   color: #0d2a66;
 }
-
-/* Projects */
 
 /* Projects */
 
@@ -341,17 +365,49 @@ a {
 }
 
 .project-card {
+  position: relative;
   padding: 30px;
   background: #ffffff;
   border: 1px solid var(--line);
+  border-top: 3px solid var(--orange);
   border-radius: 20px;
+
   box-shadow: 0 10px 30px rgba(2, 23, 67, 0.06);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    border-color 0.2s ease;
 }
 
 .project-card:hover {
   transform: translateY(-4px);
-  box-shadow: 0 16px 36px rgba(2, 23, 67, 0.1);
+  border-color: var(--orange);
+  box-shadow: 0 16px 36px rgba(2, 23, 67, 0.10);
+}
+
+.project-icon {
+  width: 52px;
+  height: 52px;
+  margin-bottom: 20px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 14px;
+  background: var(--orange-light);
+}
+
+.project-icon .material-symbols-outlined {
+  font-size: 29px;
+  color: var(--orange-dark);
+
+  font-variation-settings:
+    'FILL' 0,
+    'wght' 400,
+    'GRAD' 0,
+    'opsz' 36;
 }
 
 .project-number {
@@ -360,7 +416,8 @@ a {
   font-weight: 800;
   text-transform: uppercase;
   letter-spacing: 0.1em;
-  color: var(--navy) !important;
+
+  color: var(--orange-dark) !important;
 }
 
 .project-card h3 {
