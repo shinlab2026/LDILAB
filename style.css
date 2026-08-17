@@ -1,16 +1,31 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Noto+Sans+KR:wght@400;500;600;700;800&display=swap');
 :root {
+  /* Base */
+  --bg: #f7f9fc;
+  --bg-soft: #ffffff;
+  --text: #111827;
+  --muted: #64748b;
+  --line: #d9e2f0;
+  --card: #ffffff;
+  --max-width: 1180px;
+
+  /* Navy */
   --navy: #032060;
   --navy-dark: #021743;
   --navy-light: #e8eef9;
 
+  /* Orange */
   --orange: #f28c28;
   --orange-dark: #d96f0f;
   --orange-light: #fff1e3;
 
+  /* Teal */
   --teal: #18a6a6;
   --teal-dark: #0d7f82;
   --teal-light: #e3f5f4;
+
+  /* Accent */
+  --accent: #bfd0f2;
 }
 * {
   box-sizing: border-box;
