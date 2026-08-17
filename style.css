@@ -290,12 +290,32 @@ a {
   border-bottom: 1px solid #d9dde5;
 }
 
-.research-icon {
-  font-size: 24px;
-  line-height: 1;
+.research-icon,
+.project-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   flex-shrink: 0;
-  width: 32px;
-  text-align: center;
+}
+
+.research-icon .material-symbols-outlined {
+  font-size: 30px;
+  color: var(--navy);
+  font-variation-settings:
+    'FILL' 0,
+    'wght' 400,
+    'GRAD' 0,
+    'opsz' 32;
+}
+
+.project-icon .material-symbols-outlined {
+  font-size: 34px;
+  color: var(--navy);
+  font-variation-settings:
+    'FILL' 0,
+    'wght' 400,
+    'GRAD' 0,
+    'opsz' 36;
 }
 
 .research-item p {
@@ -332,12 +352,6 @@ a {
 .project-card:hover {
   transform: translateY(-4px);
   box-shadow: 0 16px 36px rgba(2, 23, 67, 0.1);
-}
-
-.project-icon {
-  margin-bottom: 20px;
-  font-size: 30px;
-  line-height: 1;
 }
 
 .project-number {
