@@ -1,31 +1,17 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Noto+Sans+KR:wght@400;500;600;700;800&display=swap');
 :root {
-  --bg: #f7f9fc;
-  --bg-soft: #ffffff;
-  --text: #111827;
-  --muted: #64748b;
-  --line: #d9e2f0;
-
-  /* Main */
   --navy: #032060;
   --navy-dark: #021743;
   --navy-light: #e8eef9;
 
-  /* Point 01 - Teal */
-  --teal: #18a6a6;
-  --teal-dark: #0d7f82;
-  --teal-light: #e3f5f4;
-
-  /* Point 02 - Orange */
   --orange: #f28c28;
   --orange-dark: #d96f0f;
   --orange-light: #fff1e3;
 
-  --accent: #bfd0f2;
-  --card: #ffffff;
-  --max-width: 1180px;
+  --teal: #18a6a6;
+  --teal-dark: #0d7f82;
+  --teal-light: #e3f5f4;
 }
-
 * {
   box-sizing: border-box;
 }
@@ -314,11 +300,15 @@ a {
   align-items: flex-start;
   gap: 16px;
   padding-bottom: 18px;
-  border-bottom: 1px solid #d9dde5;
+  border-bottom: 1px solid rgba(24, 166, 166, 0.22);
 }
 
 .section-kicker {
-  color: var(--teal);
+  color: var(--teal-dark);
+}
+
+.projects-section .section-kicker {
+  color: var(--orange-dark);
 }
 
 .research-icon {
@@ -330,12 +320,12 @@ a {
   flex-shrink: 0;
 
   border-radius: 50%;
-  background: var(--teal-light);
+  background: var(--orange-light);
 }
 
 .research-icon .material-symbols-outlined {
   font-size: 26px;
-  color: var(--teal-dark);
+  color: var(--orange-dark);
 
   font-variation-settings:
     'FILL' 0,
@@ -400,7 +390,7 @@ a {
 }
 
 .project-icon .material-symbols-outlined {
-  font-size: 29px;
+  font-size: 30px;
   color: var(--orange-dark);
 
   font-variation-settings:
