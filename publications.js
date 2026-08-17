@@ -98,7 +98,9 @@ filterButtons.forEach(button => {
     if (filter === "all") {
       renderPublications(allPublications);
     } else {
-      const filteredPublications = allPublications.filter(pub => pub.type === filter);
+      const filteredPublications = allPublications.filter(
+        pub => pub.type === filter
+      );
       renderPublications(filteredPublications);
     }
   });
@@ -111,10 +113,10 @@ function escapeHTML(text) {
     .replaceAll(">", "&gt;")
     .replaceAll('"', "&quot;")
     .replaceAll("'", "&#039;");
+}
 
-  function highlightLabAuthor(authors) {
-    return escapeHTML(authors)
-      .replaceAll("Yoonhee Shin", "<strong>Yoonhee Shin</strong>")
-      .replaceAll("신윤희", "<strong>신윤희</strong>");
-    }
+function highlightLabAuthor(authors) {
+  return escapeHTML(authors)
+    .replaceAll("Yoonhee Shin", "<strong>Yoonhee Shin</strong>")
+    .replaceAll("신윤희", "<strong>신윤희</strong>");
 }
