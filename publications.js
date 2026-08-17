@@ -55,7 +55,7 @@ function renderPublications(publications) {
           <h4>${escapeHTML(pub.title)}</h4>
 
           <p class="publication-authors">
-            ${escapeHTML(pub.authors || "")}
+            ${highlightLabAuthor(pub.authors || "")}
           </p>
 
           <p class="publication-venue">
@@ -111,4 +111,13 @@ function escapeHTML(text) {
     .replaceAll(">", "&gt;")
     .replaceAll('"', "&quot;")
     .replaceAll("'", "&#039;");
+
+  function highlightLabAuthor(authors) {
+    return escapeHTML(authors)
+      .replaceAll("Yoonhee Shin", "<strong>Yoonhee Shin</strong>")
+      .replaceAll("신윤희", "<strong>신윤희</strong>");
+      .replaceAll("Yoonhee Shin*", "<strong>Yoonhee Shin*</strong>")
+      .replaceAll("신윤희*", "<strong>신윤희*</strong>");
+}
+}
 }
