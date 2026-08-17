@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Noto+Sans+KR:wght@400;500;600;700;800&display=swap');
 :root {
   --bg: #f7f9fc;
   --bg-soft: #ffffff;
@@ -22,7 +23,7 @@ html {
 
 body {
   margin: 0;
-  font-family: Arial, "Noto Sans KR", sans-serif;
+  font-family: "Montserrat", "Noto Sans KR", sans-serif;
   color: var(--text);
   background: var(--bg);
   line-height: 1.6;
@@ -116,11 +117,21 @@ a {
 
 .hero h1 {
   margin: 0;
-  max-width: 850px;
-  font-size: clamp(44px, 7vw, 86px);
+  max-width: 900px;
+  font-family: "Montserrat", "Noto Sans KR", sans-serif;
+  font-size: clamp(54px, 8vw, 100px);
+  font-weight: 800;
   line-height: 0.98;
-  letter-spacing: -0.07em;
+  letter-spacing: -0.055em;
   color: var(--navy-dark);
+}
+
+.hero .eyebrow {
+  margin-bottom: 14px;
+  font-family: "Montserrat", "Noto Sans KR", sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
 }
 
 .hero-description {
@@ -589,7 +600,7 @@ a {
   }
 
   .hero h1 {
-    font-size: 44px;
+    font-size: 50px;
   }
 
   .hero-description {
