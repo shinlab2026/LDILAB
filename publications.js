@@ -105,10 +105,7 @@ function renderPublications(publications) {
             ${escapeHTML(year)}
           </span>
 
-          <span class="publication-year-count">
-            ${yearItems.length}
-          </span>
-
+        
           <span class="publication-year-icon" aria-hidden="true">
             ${isOpen ? "−" : "+"}
           </span>
