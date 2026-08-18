@@ -127,17 +127,46 @@ function renderPublications(publications) {
 
 
               <div class="publication-meta">
-
-                <span>
-                  ${escapeHTML(pub.type || "Publication")}
-                </span>
-
-                ${pub.status
-                  ? `<span>${escapeHTML(pub.status)}</span>`
-                  : ""
-                }
-
-              </div>
+               
+                 <span class="publication-type">
+                   ${escapeHTML(pub.type || "Publication")}
+                 </span>
+               
+                 ${pub.status
+                   ? `
+                     <span class="publication-status">
+                       ${escapeHTML(pub.status)}
+                     </span>
+                   `
+                   : ""
+                 }
+               
+                 ${pub.tags
+                   ? pub.tags
+                       .split(";")
+                       .map(tag => {
+               
+                         const cleanTag = tag.trim();
+               
+                         if (!cleanTag) return "";
+               
+                         const tagClass =
+                           cleanTag.toUpperCase() === "SSCI"
+                             ? "tag-ssci"
+                             : "publication-tag";
+               
+                         return `
+                           <span class="${tagClass}">
+                             ${escapeHTML(cleanTag)}
+                           </span>
+                         `;
+               
+                       })
+                       .join("")
+                   : ""
+                 }
+               
+               </div>
 
 
               <h4>
@@ -164,7 +193,7 @@ function renderPublications(publications) {
 
 
               ${
-                pub.doi || pub.link || pub.tags
+                pub.doi || pub.link 
                 ? `
 
                 <div class="publication-bottom">
@@ -172,70 +201,21 @@ function renderPublications(publications) {
                   <div class="publication-links">
 
                     ${pub.doi
-                      ? `
-                        <a
-                          href="https://doi.org/${escapeHTML(pub.doi)}"
-                          target="_blank"
-                          rel="noopener"
-                        >
-                          DOI
-                        </a>
-                      `
-                      : ""
-                    }
-
-                    ${pub.link
-                      ? `
-                        <a
-                          href="${escapeHTML(pub.link)}"
-                          target="_blank"
-                          rel="noopener"
-                        >
-                          Link
-                        </a>
-                      `
-                      : ""
-                    }
+                       ? `
+                         <a
+                           class="publication-doi"
+                           href="https://doi.org/${escapeHTML(pub.doi)}"
+                           target="_blank"
+                           rel="noopener"
+                         >
+                           DOI: ${escapeHTML(pub.doi)}
+                         </a>
+                       `
+                       : ""
+                     }
 
                   </div>
-
-
-                  ${pub.tags ? `
-
-                    <div class="publication-tags">
-
-                      ${pub.tags
-                        .split(";")
-                        .map(tag => {
-
-                          const cleanTag = tag.trim();
-
-                          if (!cleanTag) return "";
-
-                          const tagClass =
-                            cleanTag.toUpperCase() === "SSCI"
-                              ? "tag-ssci"
-                              : "";
-
-                          return `
-                            <span class="${tagClass}">
-                              ${escapeHTML(cleanTag)}
-                            </span>
-                          `;
-
-                        })
-                        .join("")
-                      }
-
-                    </div>
-
-                  ` : ""}
-
-                </div>
-
-              `
-              : ""
-            }
+             
 
             </article>
 
