@@ -892,6 +892,21 @@ a {
 }
 
 /* 이메일, 웹사이트 */
+.member-email {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  overflow-wrap: anywhere;
+}
+
+.email-label {
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--orange-dark);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
 .member-links {
   display: flex;
   flex-wrap: wrap;
