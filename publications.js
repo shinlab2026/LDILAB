@@ -184,40 +184,53 @@ function renderPublications(publications) {
 
 
               ${pub.venue ? `
-
-                <p class="publication-venue">
-                  ${escapeHTML(pub.venue)}
-                </p>
-
-              ` : ""}
-
-
-              ${
-                pub.doi || pub.link 
-                ? `
-
-                <div class="publication-bottom">
-
-                  <div class="publication-links">
-
-                    ${pub.doi
-                       ? `
-                         <a
-                           class="publication-doi"
-                           href="https://doi.org/${escapeHTML(pub.doi)}"
-                           target="_blank"
-                           rel="noopener"
-                         >
-                           DOI: ${escapeHTML(pub.doi)}
-                         </a>
-                       `
-                       : ""
-                     }
-
-                  </div>
-             
-
-            </article>
+                 <p class="publication-venue">
+                   ${escapeHTML(pub.venue)}
+                 </p>
+               ` : ""}
+               
+               
+               ${pub.doi || pub.link
+                 ? `
+                   <div class="publication-bottom">
+               
+                     <div class="publication-links">
+               
+                       ${pub.doi
+                         ? `
+                           <a
+                             class="publication-doi"
+                             href="https://doi.org/${escapeHTML(pub.doi)}"
+                             target="_blank"
+                             rel="noopener"
+                           >
+                             DOI: ${escapeHTML(pub.doi)}
+                           </a>
+                         `
+                         : ""
+                       }
+               
+                       ${pub.link
+                         ? `
+                           <a
+                             href="${escapeHTML(pub.link)}"
+                             target="_blank"
+                             rel="noopener"
+                           >
+                             Link
+                           </a>
+                         `
+                         : ""
+                       }
+               
+                     </div>
+               
+                   </div>
+                 `
+                 : ""
+               }
+               
+               </article>
 
           `).join("")}
 
