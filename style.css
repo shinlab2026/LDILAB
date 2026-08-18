@@ -729,8 +729,17 @@ a {
 
 /* 펼쳐지는 목록 */
 
-.publication-year-content {
-  padding-top: 8px;
+.publication-year-count {
+  min-width: 22px;
+  padding: 2px 6px;
+
+  border-radius: 999px;
+  background: var(--navy-light);
+  color: var(--navy-dark);
+
+  font-size: 10px;
+  font-weight: 700;
+  text-align: center;
 }
 
 
@@ -762,11 +771,24 @@ a {
 }
 
 
-/* 카드 */
+/* 개별 실적 카드 */
 .publication-item {
+  background: #ffffff;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+
   padding: 11px 14px;
+  margin-bottom: 6px;
+
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
 }
 
+.publication-item:hover {
+  border-color: var(--accent);
+  box-shadow: 0 4px 12px rgba(2, 23, 67, 0.05);
+}
 
 /* Journal Article / Published */
 .publication-item .publication-meta {
@@ -774,10 +796,18 @@ a {
 }
 
 .publication-item .publication-meta span {
+  display: inline-flex;
+  align-items: center;
+
+  padding: 2px 7px;
+  border-radius: 999px;
+
+  background: var(--navy-light);
+  color: var(--navy-dark);
+
   font-size: 10px;
   font-weight: 700;
   line-height: 1.2;
-  padding: 2px 7px;
 }
 
 
