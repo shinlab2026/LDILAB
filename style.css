@@ -312,7 +312,7 @@ a {
 
 .research-item {
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   gap: 16px;
   padding-bottom: 18px;
   border-bottom: 1px solid rgba(24, 166, 166, 0.22);
@@ -352,7 +352,7 @@ a {
 .research-item p {
   margin: 0;
   font-size: 1.2rem;
-  line-height: 1.6;
+  line-height: 1.4;
   font-weight: 600;
   color: #0d2a66;
 }
@@ -713,38 +713,6 @@ a {
 }
 
 
-/* 연도 */
-
-.publication-year-title {
-  font-size: 20px;
-  font-weight: 800;
-  line-height: 1;
-}
-
-
-/* 해당 연도의 개수 */
-
-.publication-year-count {
-  min-width: 22px;
-  padding: 2px 6px;
-
-  border-radius: 999px;
-
-  background: var(--navy-light);
-  color: var(--navy-dark);
-
-  font-size: 10px;
-  font-weight: 700;
-
-  text-align: center;
-}
-
-.publication-tags .tag-ssci {
-  background-color: #fde8e8;
-  color: #a94442;
-  border: 1px solid #f5c2c2;
-}
-
 /* +/- 아이콘 */
 
 .publication-year-icon {
@@ -777,144 +745,86 @@ a {
    Publication Item
 ======================================== */
 
+/* =========================
+   Publication Typography
+========================= */
+
+/* 연도 */
+.publication-year-title {
+  font-size: 20px;
+  font-weight: 800;
+  line-height: 1;
+}
+
+.publication-year-count {
+  font-size: 10px;
+  font-weight: 700;
+}
+
+
+/* 카드 */
 .publication-item {
-  background: white;
-
-  border: 1px solid var(--line);
-  border-radius: 9px;
-
-  padding: 10px 14px;
-  margin-bottom: 6px;
-
-  transition:
-    border-color 0.2s ease,
-    box-shadow 0.2s ease;
+  padding: 11px 14px;
 }
 
 
-/* 기존에 있던 위아래 움직임 제거 */
-
-.publication-item:hover {
-  transform: none;
-
-  border-color: var(--accent);
-
-  box-shadow:
-    0 4px 12px rgba(2, 23, 67, 0.05);
+/* Journal Article / Published */
+.publication-item .publication-meta {
+  margin-bottom: 5px;
 }
 
-
-/* ========================================
-   Type / Status
-======================================== */
-
-.publication-meta {
-  display: flex;
-  gap: 5px;
-  flex-wrap: wrap;
-
-  margin-bottom: 4px;
-}
-
-.publication-meta span {
+.publication-item .publication-meta span {
+  font-size: 10px;
+  font-weight: 700;
+  line-height: 1.2;
   padding: 2px 7px;
-
-  border-radius: 999px;
-
-  font-size: 9.5px;
-  line-height: 1.35;
-  font-weight: 750;
 }
 
 
-/* ========================================
-   Title
-======================================== */
-
+/* 제목 */
 .publication-item h4 {
-  margin: 0 0 3px;
-
-  color: var(--navy-dark);
-
+  margin: 0 0 4px;
   font-size: 15px;
   line-height: 1.35;
-
-  letter-spacing: -0.015em;
+  font-weight: 700;
+  color: var(--navy-dark);
 }
 
 
-/* ========================================
-   Authors / Venue
-======================================== */
-
-.publication-authors,
-.publication-venue {
-  margin: 1px 0;
-
-  font-size: 12px;
+/* 저자 */
+.publication-item .publication-authors {
+  margin: 0 0 1px;
+  font-size: 12.5px;
   line-height: 1.4;
-}
-
-.publication-authors {
+  font-weight: 400;
   color: #334155;
 }
 
-.publication-venue {
-  color: var(--muted);
+
+/* 학술지명 */
+.publication-item .publication-venue {
+  margin: 0;
+  font-size: 12.5px;
+  line-height: 1.4;
+  font-weight: 400;
   font-style: italic;
-}
-
-
-/* ========================================
-   Bottom
-======================================== */
-
-.publication-bottom {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-
-  flex-wrap: wrap;
-
-  margin-top: 5px;
+  color: var(--muted);
 }
 
 
 /* DOI / Link */
-
-.publication-links {
-  display: inline-flex;
-  gap: 8px;
-
-  margin: 0;
-}
-
-.publication-links a {
+.publication-item .publication-links a {
   font-size: 10.5px;
   line-height: 1.3;
 }
 
 
-/* Tags */
-
-.publication-tags {
-  display: inline-flex;
-  align-items: center;
-
-  gap: 4px;
-  flex-wrap: wrap;
-
-  margin: 0;
+/* SSCI 등의 태그 */
+.publication-item .publication-tags span {
+  font-size: 9.5px;
+  line-height: 1.2;
+  padding: 2px 5px;
 }
-
-.publication-tags span {
-  padding: 2px 6px;
-
-  font-size: 9px;
-  line-height: 1.3;
-}
-
-
 /* SSCI는 기존 빨간색 유지 */
 
 .publication-tags .tag-ssci {
