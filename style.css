@@ -726,21 +726,6 @@ a {
 }
 
 
-/* 펼쳐지는 목록 */
-
-.publication-year-count {
-  min-width: 22px;
-  padding: 2px 6px;
-
-  border-radius: 999px;
-  background: var(--navy-light);
-  color: var(--navy-dark);
-
-  font-size: 10px;
-  font-weight: 700;
-  text-align: center;
-}
-
 
 /* 접힌 상태 */
 
