@@ -5,118 +5,355 @@ const filterButtons = document.querySelectorAll(".filter-btn");
 
 let allPublications = [];
 
+
+/* =========================
+   Load spreadsheet
+========================= */
+
 Papa.parse(SHEET_CSV_URL, {
   download: true,
   header: true,
   skipEmptyLines: true,
+
   complete: function(results) {
+
     allPublications = results.data
+
       .filter(pub => pub.title && pub.year)
+
+      .map(pub => ({
+        ...pub,
+        type: (pub.type || "").trim(),
+        year: (pub.year || "").trim()
+      }))
+
       .sort((a, b) => Number(b.year) - Number(a.year));
 
     renderPublications(allPublications);
   },
+
   error: function(error) {
+
     publicationsList.innerHTML = `
       <p class="error-message">
-        Publications could not be loaded. Please check the spreadsheet link.
+        Publications could not be loaded.
+        Please check the spreadsheet link.
       </p>
     `;
+
     console.error("CSV loading error:", error);
   }
 });
 
+
+/* =========================
+   Render publications
+========================= */
+
 function renderPublications(publications) {
+
   if (!publications.length) {
-    publicationsList.innerHTML = "<p>No publications found.</p>";
+
+    publicationsList.innerHTML =
+      "<p class='no-publications'>No publications found.</p>";
+
     return;
   }
 
+
+  /* 연도별 그룹화 */
+
   const groupedByYear = publications.reduce((groups, pub) => {
+
     const year = pub.year || "Other";
-    if (!groups[year]) groups[year] = [];
+
+    if (!groups[year]) {
+      groups[year] = [];
+    }
+
     groups[year].push(pub);
+
     return groups;
+
   }, {});
 
-  const years = Object.keys(groupedByYear).sort((a, b) => Number(b) - Number(a));
 
-  publicationsList.innerHTML = years.map(year => `
-    <div class="publication-year-group">
-      <h3 class="publication-year">${year}</h3>
+  /* 최신 연도부터 */
 
-      ${groupedByYear[year].map(pub => `
-        <article class="publication-item">
-          <div class="publication-meta">
-            <span>${escapeHTML(pub.type || "Publication")}</span>
-            ${pub.status ? `<span>${escapeHTML(pub.status)}</span>` : ""}
-          </div>
+  const years = Object.keys(groupedByYear)
+    .sort((a, b) => Number(b) - Number(a));
 
-          <h4>${escapeHTML(pub.title)}</h4>
 
-          <p class="publication-authors">
-            ${highlightLabAuthor(pub.authors || "")}
-          </p>
+  publicationsList.innerHTML = years.map((year, index) => {
 
-          <p class="publication-venue">
-            ${escapeHTML(pub.venue || "")}
-          </p>
+    const yearItems = groupedByYear[year];
 
-          <div class="publication-links">
-            ${pub.doi ? `<a href="https://doi.org/${escapeHTML(pub.doi)}" target="_blank" rel="noopener">DOI</a>` : ""}
-            ${pub.link ? `<a href="${escapeHTML(pub.link)}" target="_blank" rel="noopener">Link</a>` : ""}
-          </div>
+    /* 최신 연도만 기본 펼침 */
+    const isOpen = index === 0;
 
-          ${pub.tags ? `
-            <div class="publication-tags">
-              ${pub.tags.split(";").map(tag => {
-                const cleanTag = tag.trim();
-                const tagClass =
-                  cleanTag.toUpperCase() === "SSCI" ? "tag-ssci" : "";
-          
-                return `
-                  <span class="${tagClass}">
-                    ${escapeHTML(cleanTag)}
-                  </span>
-                `;
-              }).join("")}
-            </div>
-          ` : ""}
-        </article>
-      `).join("")}
-    </div>
-  `).join("");
+    return `
+
+      <div class="publication-year-group">
+
+        <button
+          class="publication-year-toggle"
+          type="button"
+          aria-expanded="${isOpen}"
+        >
+
+          <span class="publication-year-title">
+            ${escapeHTML(year)}
+          </span>
+
+          <span class="publication-year-count">
+            ${yearItems.length}
+          </span>
+
+          <span class="publication-year-icon" aria-hidden="true">
+            ${isOpen ? "−" : "+"}
+          </span>
+
+        </button>
+
+
+        <div
+          class="publication-year-content
+          ${isOpen ? "" : "is-collapsed"}"
+        >
+
+          ${yearItems.map(pub => `
+
+            <article class="publication-item">
+
+
+              <div class="publication-meta">
+
+                <span>
+                  ${escapeHTML(pub.type || "Publication")}
+                </span>
+
+                ${pub.status
+                  ? `<span>${escapeHTML(pub.status)}</span>`
+                  : ""
+                }
+
+              </div>
+
+
+              <h4>
+                ${escapeHTML(pub.title)}
+              </h4>
+
+
+              ${pub.authors ? `
+
+                <p class="publication-authors">
+                  ${highlightLabAuthor(pub.authors)}
+                </p>
+
+              ` : ""}
+
+
+              ${pub.venue ? `
+
+                <p class="publication-venue">
+                  ${escapeHTML(pub.venue)}
+                </p>
+
+              ` : ""}
+
+
+              ${
+                pub.doi || pub.link || pub.tags
+                ? `
+
+                <div class="publication-bottom">
+
+                  <div class="publication-links">
+
+                    ${pub.doi
+                      ? `
+                        <a
+                          href="https://doi.org/${escapeHTML(pub.doi)}"
+                          target="_blank"
+                          rel="noopener"
+                        >
+                          DOI
+                        </a>
+                      `
+                      : ""
+                    }
+
+                    ${pub.link
+                      ? `
+                        <a
+                          href="${escapeHTML(pub.link)}"
+                          target="_blank"
+                          rel="noopener"
+                        >
+                          Link
+                        </a>
+                      `
+                      : ""
+                    }
+
+                  </div>
+
+
+                  ${pub.tags ? `
+
+                    <div class="publication-tags">
+
+                      ${pub.tags
+                        .split(";")
+                        .map(tag => {
+
+                          const cleanTag = tag.trim();
+
+                          if (!cleanTag) return "";
+
+                          const tagClass =
+                            cleanTag.toUpperCase() === "SSCI"
+                              ? "tag-ssci"
+                              : "";
+
+                          return `
+                            <span class="${tagClass}">
+                              ${escapeHTML(cleanTag)}
+                            </span>
+                          `;
+
+                        })
+                        .join("")
+                      }
+
+                    </div>
+
+                  ` : ""}
+
+                </div>
+
+              `
+              : ""
+            }
+
+            </article>
+
+          `).join("")}
+
+        </div>
+
+      </div>
+
+    `;
+
+  }).join("");
+
+
+  /* =========================
+     Year toggle
+  ========================= */
+
+  publicationsList
+    .querySelectorAll(".publication-year-toggle")
+    .forEach(button => {
+
+      button.addEventListener("click", () => {
+
+        const content = button.nextElementSibling;
+        const icon = button.querySelector(
+          ".publication-year-icon"
+        );
+
+        const isCollapsed =
+          content.classList.toggle("is-collapsed");
+
+        button.setAttribute(
+          "aria-expanded",
+          String(!isCollapsed)
+        );
+
+        icon.textContent =
+          isCollapsed ? "+" : "−";
+
+      });
+
+    });
+
 }
 
+
+/* =========================
+   Filter
+========================= */
+
 filterButtons.forEach(button => {
+
   button.addEventListener("click", () => {
-    filterButtons.forEach(btn => btn.classList.remove("active"));
+
+    filterButtons.forEach(btn =>
+      btn.classList.remove("active")
+    );
+
     button.classList.add("active");
 
     const filter = button.dataset.filter;
 
+
     if (filter === "all") {
+
       renderPublications(allPublications);
-    } else {
-      const filteredPublications = allPublications.filter(
-        pub => pub.type === filter
-      );
-      renderPublications(filteredPublications);
+
+      return;
     }
+
+
+    const filteredPublications =
+      allPublications.filter(pub =>
+        String(pub.type).trim() === filter
+      );
+
+
+    renderPublications(filteredPublications);
+
   });
+
 });
 
+
+/* =========================
+   Escape HTML
+========================= */
+
 function escapeHTML(text) {
+
   return String(text)
+
     .replaceAll("&", "&amp;")
     .replaceAll("<", "&lt;")
     .replaceAll(">", "&gt;")
     .replaceAll('"', "&quot;")
     .replaceAll("'", "&#039;");
+
 }
 
+
+/* =========================
+   Highlight PI
+========================= */
+
 function highlightLabAuthor(authors) {
+
   return escapeHTML(authors)
-    .replaceAll("Yoonhee Shin", "<strong>Yoonhee Shin</strong>")
-    .replaceAll("신윤희", "<strong>신윤희</strong>");
+
+    .replaceAll(
+      "Yoonhee Shin",
+      "<strong>Yoonhee Shin</strong>"
+    )
+
+    .replaceAll(
+      "신윤희",
+      "<strong>신윤희</strong>"
+    );
+
 }
