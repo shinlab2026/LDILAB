@@ -678,8 +678,8 @@ a {
 }
 
 .filter-btn.active {
-  background: var(--navy);
-  border-color: var(--navy);
+  background: var(--accent);
+  border-color: var(--accent);
   color: #ffffff;
 }
 
