@@ -93,13 +93,23 @@ function renderMembers(members) {
               ` : ""}
 
               <div class="member-links">
-                ${member.email ? `
-                  <a href="mailto:${escapeAttribute(member.email)}">Email</a>
-                ` : ""}
-
-                ${member.website ? `
-                  <a href="${escapeAttribute(member.website)}" target="_blank" rel="noopener">Website</a>
-                ` : ""}
+              
+              ${member.email ? `
+              <a 
+                class="member-email"
+                href="mailto:${escapeAttribute(member.email)}"
+              >
+                <span class="email-label">Email</span>
+                ${escapeHTML(member.email)}
+              </a>
+              ` : ""}
+              
+              ${member.website ? `
+              <a href="${escapeAttribute(member.website)}" target="_blank" rel="noopener">
+                Website
+              </a>
+              ` : ""}
+              
               </div>
             </div>
           </article>
