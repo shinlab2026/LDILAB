@@ -326,24 +326,3 @@ function escapeHTML(text) {
     .replaceAll("'", "&#039;");
 
 }
-
-
-/* =========================
-   Highlight PI
-========================= */
-
-function highlightLabAuthor(authors) {
-
-  return escapeHTML(authors)
-
-    .replaceAll(
-      "Yoonhee Shin",
-      "<strong>Yoonhee Shin</strong>"
-    )
-
-    .replaceAll(
-      "신윤희",
-      "<strong>신윤희</strong>"
-    );
-
-}
