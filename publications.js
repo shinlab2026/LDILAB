@@ -174,7 +174,7 @@ function renderPublications(publications) {
               ${pub.authors ? `
 
                 <p class="publication-authors">
-                  ${highlightLabAuthor(pub.authors)}
+                  ${escapeHTML(pub.authors)}
                 </p>
 
               ` : ""}
