@@ -43,8 +43,8 @@ function renderMembers(members) {
     "Professor",
     "Ph.D. Students",
     "Master’s Students",
-    "Researchers",
-    "Alumni"
+    "Ph.D.",
+    "Master"
   ];
 
   const groups = Object.keys(groupedByRole).sort((a, b) => {
