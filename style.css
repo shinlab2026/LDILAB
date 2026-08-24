@@ -73,6 +73,7 @@ a {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  position: relative;
 }
 
 .logo {
@@ -96,6 +97,119 @@ a {
 
 .main-nav a:hover {
   color: var(--navy);
+}
+
+/* ================================
+   Mobile Menu
+================================ */
+
+/* PC에서는 햄버거 버튼 숨김 */
+.menu-toggle {
+  display: none;
+  width: 42px;
+  height: 42px;
+  padding: 9px;
+
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+}
+
+/* 햄버거 선 */
+.menu-toggle span {
+  display: block;
+  width: 22px;
+  height: 2px;
+
+  background: var(--navy-dark);
+  border-radius: 2px;
+
+  transition:
+    transform 0.25s ease,
+    opacity 0.25s ease;
+}
+
+/* 메뉴가 열렸을 때 X 모양 */
+.menu-toggle.active span:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+
+.menu-toggle.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.menu-toggle.active span:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+
+/* ================================
+   Tablet / Mobile Navigation
+================================ */
+
+@media (max-width: 960px) {
+
+  /* 햄버거 버튼 표시 */
+  .menu-toggle {
+    display: flex;
+  }
+
+  /* 메뉴 기본 상태 = 닫힘 */
+  .main-nav {
+    display: none;
+
+    position: absolute;
+    top: calc(100% + 8px);
+    right: 0;
+
+    width: min(300px, calc(100vw - 28px));
+
+    flex-direction: column;
+    gap: 0;
+
+    padding: 10px;
+
+    background: #ffffff;
+    border: 1px solid var(--line);
+    border-radius: 16px;
+
+    box-shadow: 0 16px 40px rgba(2, 23, 67, 0.14);
+
+    z-index: 1000;
+  }
+
+  /* 햄버거 버튼 클릭했을 때 */
+  .main-nav.active {
+    display: flex;
+  }
+
+  .main-nav a {
+    display: block;
+
+    padding: 13px 16px;
+
+    font-size: 15px;
+    font-weight: 600;
+
+    border-radius: 10px;
+  }
+
+  .main-nav a:hover {
+    background: var(--navy-light);
+    color: var(--navy-dark);
+  }
+}
+
+
+/* 메뉴로 이동했을 때
+   sticky header에 제목이 가려지지 않도록 */
+section[id] {
+  scroll-margin-top: 90px;
 }
 
 /* Hero */
@@ -531,9 +645,7 @@ a {
 /* Responsive */
 
 @media (max-width: 960px) {
-  .main-nav {
-    display: none;
-  }
+
 
   .hero-grid {
     grid-template-columns: 1fr;
