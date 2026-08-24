@@ -77,18 +77,37 @@ a {
   position: relative;
 }
 
+/* Header Logo */
+
 .logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+
   font-size: 18px;
   font-weight: 800;
   letter-spacing: -0.03em;
   color: var(--navy-dark);
 }
 
-.header-logo {
-  width: 28px;
-  height: 28px;
+.site-header .logo .header-logo {
+  width: 28px !important;
+  height: 28px !important;
+
+  min-width: 28px !important;
+  min-height: 28px !important;
+
+  max-width: 28px !important;
+  max-height: 28px !important;
+
+  flex: 0 0 28px;
+
   object-fit: contain;
-  flex-shrink: 0;
+
+  position: static !important;
+  inset: auto !important;
+
+  transform: none !important;
 }
 
 .main-nav {
