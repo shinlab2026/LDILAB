@@ -57,18 +57,6 @@ a {
   max-width: 850px;
 }
 
-.logo {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-}
-
-.header-logo {
-  width: 28px;
-  height: 28px;
-  object-fit: contain;
-  flex-shrink: 0;
-}
 
 /* Header */
 
@@ -94,6 +82,13 @@ a {
   font-weight: 800;
   letter-spacing: -0.03em;
   color: var(--navy-dark);
+}
+
+.header-logo {
+  width: 28px;
+  height: 28px;
+  object-fit: contain;
+  flex-shrink: 0;
 }
 
 .main-nav {
