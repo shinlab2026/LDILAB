@@ -57,6 +57,19 @@ a {
   max-width: 850px;
 }
 
+.logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.header-logo {
+  width: 28px;
+  height: 28px;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
 /* Header */
 
 .site-header {
