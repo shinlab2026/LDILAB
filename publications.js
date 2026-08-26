@@ -148,9 +148,9 @@ function renderPublications(publications) {
                          if (!cleanTag) return "";
                
                          const tagClass =
-                           cleanTag.toUpperCase() === "SSCI"
-                             ? "tag-ssci"
-                             : "publication-tag";
+                          cleanTag.toUpperCase() === "SSCI" || cleanTag === "연구책임자"
+                            ? "tag-ssci"
+                            : "publication-tag";
                
                          return `
                            <span class="${tagClass}">
