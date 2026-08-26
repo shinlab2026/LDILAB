@@ -1340,21 +1340,24 @@ section[id] {
    Linked Research Project
 =================================== */
 
-.linked-project {
+.project-card .linked-project {
   margin-top: auto;
   padding-top: 20px;
   border-top: 1px solid #e5e9ef;
 }
 
-.linked-project-label {
+/* 연계 연구과제 */
+.project-card .linked-project .linked-project-label {
   margin: 0 0 9px;
   font-size: 13px;
   font-weight: 800;
   line-height: 1.3;
   color: var(--orange);
+  word-break: keep-all;
 }
 
-.linked-project-title {
+/* 연구과제명 */
+.project-card .linked-project .linked-project-title {
   margin: 0 0 10px;
   font-size: 15px;
   font-weight: 700;
@@ -1364,7 +1367,8 @@ section[id] {
   word-break: keep-all;
 }
 
-.linked-project-meta {
+/* 사업명 / 기간 / 연구책임자 */
+.project-card .linked-project .linked-project-meta {
   margin: 0;
   font-size: 12.5px;
   font-weight: 500;
@@ -1373,29 +1377,36 @@ section[id] {
   word-break: keep-all;
 }
 
-.linked-project-meta span {
+/* 가운데 점 */
+.project-card .linked-project .linked-project-meta span {
   display: inline-block;
   margin: 0 4px;
   color: #94a3b8;
 }
 
 
+/* 기존 설명과 연계 연구과제 사이 간격 */
+.project-card .project-description {
+  margin: 3px 0 22px !important;
+}
+
+
 /* Mobile */
 @media (max-width: 720px) {
-  .linked-project {
+
+  .project-card .linked-project {
     padding-top: 17px;
   }
 
-  .linked-project-title {
+  .project-card .linked-project .linked-project-label {
+    font-size: 12px;
+  }
+
+  .project-card .linked-project .linked-project-title {
     font-size: 14.5px;
   }
 
-  .linked-project-meta {
+  .project-card .linked-project .linked-project-meta {
     font-size: 12px;
   }
 }
-
-.project-description {
-  margin-bottom: 22px !important;
-}
-
