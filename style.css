@@ -1391,6 +1391,10 @@ section[id] {
 /* 기존 설명과 연계 연구과제 사이 간격 */
 .project-card .project-description {
   margin: 3px 0 22px !important;
+  text-align: justify;          /* 양쪽 맞춤 */
+  text-align-last: left;        /* 마지막 줄은 왼쪽 정렬 */
+  text-justify: inter-word;     /* 글자보다 단어 간격으로 조절 */
+  hyphens: auto;                /* 영문 단어가 너무 길면 자연스럽게 분리 */
 }
 
 
@@ -1417,9 +1421,13 @@ section[id] {
   .project-card .linked-project .linked-project-meta {
     font-size: 11.5px;
     line-height: 1.6;
-
     white-space: normal;
     word-break: keep-all;
     overflow-wrap: break-word;
+  }
+  
+    .project-card .project-description {
+    text-align: left;
+    hyphens: none;
   }
 }
