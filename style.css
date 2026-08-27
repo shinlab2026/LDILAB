@@ -1374,7 +1374,9 @@ section[id] {
   font-weight: 500;
   line-height: 1.6;
   color: #64748b;
-  white-space: nowrap;      /* 한 줄 유지 */
+
+  /* PC에서는 한 줄 */
+  white-space: nowrap;
   word-break: keep-all;
   letter-spacing: -0.02em;
 }
@@ -1386,14 +1388,16 @@ section[id] {
   color: #94a3b8;
 }
 
-
 /* 기존 설명과 연계 연구과제 사이 간격 */
 .project-card .project-description {
   margin: 3px 0 22px !important;
 }
 
 
-/* Mobile */
+/* ===================================
+   Mobile
+=================================== */
+
 @media (max-width: 720px) {
 
   .project-card .linked-project {
@@ -1406,9 +1410,16 @@ section[id] {
 
   .project-card .linked-project .linked-project-title {
     font-size: 14.5px;
+    line-height: 1.5;
   }
 
+  /* 모바일에서는 2줄 바꿈 */
   .project-card .linked-project .linked-project-meta {
-    font-size: 12px;
+    font-size: 11.5px;
+    line-height: 1.6;
+
+    white-space: normal;
+    word-break: keep-all;
+    overflow-wrap: break-word;
   }
 }
