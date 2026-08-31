@@ -86,7 +86,7 @@ function renderPublications(publications) {
 
   publicationsList.innerHTML = years.map((year, index) => {
 
-    const yearItems = groupedByYear[year];
+    const yearItems = [...groupedByYear[year]].reverse();
 
     /* 최신 연도만 기본 펼침 */
     const isOpen = index === 0;
