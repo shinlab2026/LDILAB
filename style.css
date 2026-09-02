@@ -820,52 +820,6 @@ section[id] {
   }
 }
 
-@media (max-width: 620px) {
-  .container {
-    width: min(100% - 28px, var(--max-width));
-  }
-
-  .hero {
-    padding: 60px 0;
-  }
-
-  .hero h1 {
-    font-size: 36px;
-  }
-
-  .hero .eyebrow {
-    font-size: 14px;
-  }
-
-  .hero-description {
-    font-size: 17px;
-  }
-
-  .research-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .research-card {
-    min-height: 260px;
-  }
-
-  .section h2 {
-    font-size: 34px;
-  }
-
-  .section p {
-    font-size: 16px;
-  }
-
-  .contact-box {
-    padding: 36px 24px;
-    border-radius: 24px;
-  }
-
-  .footer-container {
-    flex-direction: column;
-  }
-}
 
 /* ========================================
    Compact Publications
