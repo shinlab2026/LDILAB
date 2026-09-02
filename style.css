@@ -1574,10 +1574,8 @@ section[id] {
 
 .framework-step {
   position: relative;
-
   display: flex;
   flex-direction: column;
-
   min-width: 0;
 }
 
@@ -1591,17 +1589,15 @@ section[id] {
 .framework-step:not(:last-child)
 .framework-card::after {
   content: "→";
-
   position: absolute;
-  top: 40%;
-  right: -31px;
-
+  top: 50%;
+  left: calc(100% + 17px);
+  right: auto;
   z-index: 5;
-
   font-size: 31px;
   font-weight: 500;
 
-  transform: translateY(-50%);
+  transform: translate(-50%, -50%);
 }
 
 
@@ -1635,18 +1631,14 @@ section[id] {
 
 .framework-step-header {
   position: relative;
-
-  min-height: 66px;
-
-  margin-bottom: 11px;
-
+  min-height: 0px;
+  margin-bottom: 10px;
   text-align: center;
 }
 
 
 .step-heading {
-  margin-bottom: 6px;
-
+  margin-bottom: 1px;
   font-size: 18px;
   font-weight: 800;
   line-height: 1.25;
