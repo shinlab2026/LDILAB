@@ -308,7 +308,6 @@ section[id] {
 .hero h1 {
   margin: 0;
   max-width: none;
-  font-family: inherit;
   font-size: clamp(64px, 8vw, 105px);
   font-weight: 700;
   line-height: 1;
