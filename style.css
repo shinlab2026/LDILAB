@@ -1794,250 +1794,29 @@ section[id] {
 
 .framework-main-visual {
   position: relative;
-
   display: flex;
-
   align-items: center;
   justify-content: center;
-
   height: 166px;
-
   margin: 5px 12px 0;
 }
 
-
-/* -----------------------------------------
-   STEP 1
------------------------------------------ */
-
-.understand-visual {
-  position: relative;
-}
-
-.understand-visual .person-left,
-.understand-visual .person-right {
-  position: absolute;
-
-  bottom: 22px;
-
-  font-size: 73px;
-
-  font-weight: 200;
-}
-
-.understand-visual .person-left {
-  left: 28px;
-}
-
-.understand-visual .person-right {
-  right: 28px;
-
-  opacity: 0.6;
-}
-
-.understand-visual .dialogue {
-  position: absolute;
-
-  top: 18px;
-  left: 50%;
-
-  font-size: 55px;
-
-  transform: translateX(-50%);
-}
-
-
-/* -----------------------------------------
-   STEP 2
------------------------------------------ */
-
-.multimodal-visual {
-  width: 190px;
-
-  margin-left: auto;
-  margin-right: auto;
-}
-
-
-.multi-center {
-  position: absolute;
-
-  top: 50%;
-  left: 50%;
-
+.framework-image-area {
+  height: 180px;
   display: flex;
-
   align-items: center;
   justify-content: center;
-
-  width: 74px;
-  height: 74px;
-
-  border: 1.5px dashed var(--framework-cyan);
-  border-radius: 50%;
-
-  background: #ffffff;
-
-  transform: translate(-50%, -50%);
-
-  z-index: 2;
+  padding: 10px 20px;
 }
 
-.multi-center span {
-  font-size: 45px;
+.framework-main-image {
+  display: block;
+  max-width: 100%;
+  max-height: 160px;
+  width: auto;
+  height: auto;
+  object-fit: contain;
 }
-
-
-.multi-node {
-  position: absolute;
-
-  display: flex;
-
-  align-items: center;
-  justify-content: center;
-
-  width: 47px;
-  height: 47px;
-
-  border: 1.5px solid #9bd9ea;
-  border-radius: 50%;
-
-  background: #ffffff;
-
-  z-index: 2;
-}
-
-.multi-node span {
-  font-size: 27px;
-}
-
-
-.multi-chat {
-  top: 12px;
-  left: 5px;
-}
-
-.multi-signal {
-  top: 12px;
-  right: 5px;
-}
-
-.multi-behavior {
-  bottom: 12px;
-  left: 5px;
-}
-
-.multi-digital {
-  right: 5px;
-  bottom: 12px;
-}
-
-
-/* 연결선 */
-
-.multimodal-visual::before,
-.multimodal-visual::after {
-  content: "";
-
-  position: absolute;
-
-  top: 50%;
-  left: 50%;
-
-  width: 130px;
-
-  border-top: 1.5px dashed #9bd9ea;
-
-  transform-origin: center;
-
-  z-index: 1;
-}
-
-.multimodal-visual::before {
-  transform:
-    translate(-50%, -50%)
-    rotate(32deg);
-}
-
-.multimodal-visual::after {
-  transform:
-    translate(-50%, -50%)
-    rotate(-32deg);
-}
-
-
-/* -----------------------------------------
-   STEP 3
------------------------------------------ */
-
-.ai-visual {
-  overflow: hidden;
-}
-
-.ai-brain {
-  color: var(--framework-purple);
-
-  font-size: 148px;
-
-  font-weight: 200;
-}
-
-.ai-label {
-  position: absolute;
-
-  top: 50%;
-  left: 50%;
-
-  display: flex;
-
-  align-items: center;
-  justify-content: center;
-
-  width: 62px;
-  height: 62px;
-
-  border-radius: 7px;
-
-  background: var(--framework-purple);
-
-  color: #ffffff;
-
-  font-size: 32px;
-  font-weight: 800;
-
-  transform: translate(-50%, -50%);
-}
-
-
-/* -----------------------------------------
-   STEP 4
------------------------------------------ */
-
-.adaptive-laptop {
-  color: var(--framework-blue);
-
-  font-size: 145px;
-
-  font-weight: 200;
-}
-
-.adaptive-chat {
-  position: absolute;
-
-  top: 23px;
-  right: 25px;
-
-  padding: 5px 8px;
-
-  border-radius: 7px;
-
-  background: var(--framework-blue);
-
-  color: #ffffff;
-
-  font-size: 36px;
-}
-
 
 /* =========================================
    CARD ITEM GRID
