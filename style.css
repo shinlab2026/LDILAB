@@ -465,14 +465,6 @@ section[id] {
   border-bottom: 1px solid rgba(24, 166, 166, 0.22);
 }
 
-.section-kicker {
-  color: var(--teal-dark);
-}
-
-.projects-section .section-kicker {
-  color: var(--orange-dark);
-}
-
 .research-icon {
   width: 46px;
   height: 46px;
