@@ -312,7 +312,6 @@ section[id] {
   font-size: clamp(64px, 8vw, 105px);
   font-weight: 700;
   line-height: 1;
-  letter-spacing: 0.02em;
   color: var(--navy-dark);
   white-space: nowrap;
 }
