@@ -286,7 +286,6 @@ section[id] {
 }
 
 .eyebrow,
-.section-kicker,
 .project-tag,
 .card-label {
   margin: 0 0 18px;
@@ -430,7 +429,7 @@ section[id] {
   color: var(--navy-dark);
 }
 
-.section p {
+.section p:not(.section-kicker) {
   font-size: 18px;
   color: #334155;
   word-break: keep-all;
@@ -509,11 +508,6 @@ section[id] {
 
 .projects-section .section-header {
   margin-bottom: 30px;
-}
-
-.projects-section .section-kicker {
-  margin-bottom: 8px;
-  color: var(--orange);
 }
 
 .projects-section .section-header h2 {
@@ -783,9 +777,9 @@ section[id] {
     font-size: 34px;
   }
 
-  .section p {
-    font-size: 16px;
-  }
+.section p:not(.section-kicker) {
+  font-size: 16px;
+}
 
   .contact-box {
     padding: 36px 24px;
@@ -2168,4 +2162,18 @@ section[id] {
   .outcome-value p br {
     display: none;
   }
+}
+/* ===================================
+   Section Kicker - Unified
+=================================== */
+
+.section .section-kicker {
+  margin: 0 0 18px;
+  padding: 0;
+  font-size: 18px;
+  font-weight: 800;
+  line-height: 1.2;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--orange); /* 현재 #3F0CEA */
 }
