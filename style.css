@@ -429,7 +429,7 @@ section[id] {
   color: var(--navy-dark);
 }
 
-.section p:not(.section-kicker) {
+.section p {
   font-size: 18px;
   color: #334155;
   word-break: keep-all;
@@ -777,7 +777,7 @@ section[id] {
     font-size: 34px;
   }
 
-.section p:not(.section-kicker) {
+.section p {
   font-size: 16px;
 }
 
