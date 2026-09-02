@@ -2118,16 +2118,17 @@ section[id] {
   }
 }
 /* ===================================
-   Section Kicker - Unified
+   Section Kicker - FINAL UNIFIED STYLE
 =================================== */
 
-.section .section-kicker {
-  margin: 0 0 18px;
-  padding: 0;
-  font-size: 18px;
-  font-weight: 800;
-  line-height: 1.2;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  color: var(--orange); /* 현재 #3F0CEA */
+.section-kicker {
+  margin: 0 0 18px !important;
+  padding: 0 !important;
+  font-family: "Montserrat", "Noto Sans KR", sans-serif !important;
+  font-size: 13px !important;
+  font-weight: 800 !important;
+  line-height: 1.2 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.08em !important;
+  color: #3F0CEA !important;
 }
