@@ -2145,6 +2145,11 @@ section[id] {
     min-height: 260px;
   }
 
+  .research-item p {
+  font-size: 14px;
+  line-height: 1.45;
+  font-weight: 600;
+}
 
   /* -------------------------------
      Common Section Title
