@@ -1062,12 +1062,15 @@ section[id] {
 /* 이메일, 웹사이트 */
 .member-email {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   gap: 7px;
-  overflow-wrap: anywhere;
 }
 
+/* EMAIL 글자는 절대 줄바꿈하지 않음 */
 .email-label {
+  flex-shrink: 0;
+  white-space: nowrap;
+
   font-size: 0.72rem;
   font-weight: 700;
   color: var(--orange-dark);
@@ -1075,6 +1078,12 @@ section[id] {
   letter-spacing: 0.04em;
 }
 
+/* 이메일 주소만 필요할 때 줄바꿈 */
+.member-email a {
+  min-width: 0;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
 .member-links {
   display: flex;
   flex-wrap: wrap;
