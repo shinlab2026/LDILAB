@@ -308,10 +308,11 @@ section[id] {
 .hero h1 {
   margin: 0;
   max-width: none;
+  font-family: inherit;
   font-size: clamp(64px, 8vw, 105px);
-  font-weight: 500;
+  font-weight: 700;
   line-height: 1;
-  letter-spacing: 0.06em;
+  letter-spacing: 0.03em;
   color: var(--navy-dark);
   white-space: nowrap;
 }
@@ -1506,7 +1507,7 @@ section[id] {
   color: var(--framework-navy);
 
   font-size: clamp(42px, 5vw, 67px);
-  font-weight: 800;
+  font-weight: 700;
   line-height: 1.08;
 
   letter-spacing: -0.045em;
@@ -1549,7 +1550,7 @@ section[id] {
   color: var(--framework-blue);
 
   font-size: 21px;
-  font-weight: 800;
+  font-weight: 700;
   line-height: 1.2;
 
   letter-spacing: -0.02em;
@@ -1585,22 +1586,6 @@ section[id] {
 /* =========================================
    ARROWS
 ========================================= */
-
-/* 상단 화살표 */
-
-.framework-step:not(:last-child)
-.framework-step-header::after {
-  content: "→";
-
-  position: absolute;
-  top: 1px;
-  right: -29px;
-
-  font-size: 31px;
-  font-weight: 400;
-  line-height: 1;
-}
-
 
 /* 카드 가운데 화살표 */
 
