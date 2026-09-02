@@ -307,11 +307,17 @@ section[id] {
 
 .hero h1 {
   margin: 0;
-  max-width: 850px;
-  font-size: clamp(40px, 5vw, 64px);
-  line-height: 1.05;
-  letter-spacing: -0.05em;
+  max-width: none;
+  font-size: clamp(64px, 8vw, 105px);
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: 0.06em;
   color: var(--navy-dark);
+  white-space: nowrap;
+}
+
+.hero p:first-of-type {
+  font-size: 20px;
 }
 
 .hero-description {
@@ -1445,5 +1451,982 @@ section[id] {
     white-space: normal;
     word-break: keep-all;
     overflow-wrap: break-word;
+  }
+}
+/* =========================================
+   ABOUT THE LAB / RESEARCH FRAMEWORK
+========================================= */
+
+.about-framework-section {
+  --framework-navy: #071b62;
+  --framework-cyan: #149bc1;
+  --framework-purple: #3f0cea;
+  --framework-blue: #1769ee;
+
+  --framework-text: #101d4f;
+  --framework-line: #d7e0ef;
+
+  padding: 90px 0 100px;
+  background: #ffffff;
+}
+
+.framework-container {
+  width: min(1180px, calc(100% - 48px));
+  margin: 0 auto;
+}
+
+
+/* =========================================
+   ABOUT INTRO
+========================================= */
+
+.about-framework-intro {
+  margin-bottom: 48px;
+}
+
+.about-label {
+  margin-bottom: 14px;
+
+  color: var(--framework-blue);
+
+  font-size: 17px;
+  font-weight: 800;
+  line-height: 1.2;
+
+  letter-spacing: 0.01em;
+}
+
+
+/* 메인 타이틀 */
+
+.about-main-title {
+  margin: 0;
+
+  color: var(--framework-navy);
+
+  font-size: clamp(42px, 5vw, 67px);
+  font-weight: 800;
+  line-height: 1.08;
+
+  letter-spacing: -0.045em;
+}
+
+
+/* intelligent 단어만 보라색 */
+
+.about-main-title span {
+  color: #3f0cea;
+}
+
+
+/* 설명 */
+
+.about-description {
+  margin: 26px 0 0;
+
+  color: #28365d;
+
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 1.75;
+
+  letter-spacing: -0.015em;
+}
+
+
+/* =========================================
+   FRAMEWORK TITLE
+========================================= */
+
+.research-framework-area {
+  margin-top: 48px;
+}
+
+.framework-main-title {
+  margin: 0 0 30px;
+
+  color: var(--framework-blue);
+
+  font-size: 21px;
+  font-weight: 800;
+  line-height: 1.2;
+
+  letter-spacing: -0.02em;
+}
+
+
+/* =========================================
+   4 COLUMN FLOW
+========================================= */
+
+.framework-flow {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+
+  gap: 34px;
+
+  align-items: stretch;
+}
+
+
+/* 각 단계 */
+
+.framework-step {
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+
+  min-width: 0;
+}
+
+
+/* =========================================
+   ARROWS
+========================================= */
+
+/* 상단 화살표 */
+
+.framework-step:not(:last-child)
+.framework-step-header::after {
+  content: "→";
+
+  position: absolute;
+  top: 1px;
+  right: -29px;
+
+  font-size: 31px;
+  font-weight: 400;
+  line-height: 1;
+}
+
+
+/* 카드 가운데 화살표 */
+
+.framework-step:not(:last-child)
+.framework-card::after {
+  content: "→";
+
+  position: absolute;
+  top: 40%;
+  right: -31px;
+
+  z-index: 5;
+
+  font-size: 31px;
+  font-weight: 500;
+
+  transform: translateY(-50%);
+}
+
+
+/* 단계별 화살표 컬러 */
+
+.step-learning
+.framework-step-header::after,
+.step-learning
+.framework-card::after {
+  color: var(--framework-navy);
+}
+
+.step-multimodal
+.framework-step-header::after,
+.step-multimodal
+.framework-card::after {
+  color: var(--framework-cyan);
+}
+
+.step-intelligence
+.framework-step-header::after,
+.step-intelligence
+.framework-card::after {
+  color: var(--framework-purple);
+}
+
+
+/* =========================================
+   STEP HEADER
+========================================= */
+
+.framework-step-header {
+  position: relative;
+
+  min-height: 66px;
+
+  margin-bottom: 11px;
+
+  text-align: center;
+}
+
+
+.step-heading {
+  margin-bottom: 6px;
+
+  font-size: 18px;
+  font-weight: 800;
+  line-height: 1.25;
+
+  white-space: nowrap;
+}
+
+
+.step-subheading {
+  color: #28365d;
+
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 1.3;
+}
+
+
+/* 각각 컬러 */
+
+.step-learning .step-heading {
+  color: var(--framework-navy);
+}
+
+.step-multimodal .step-heading {
+  color: var(--framework-cyan);
+}
+
+.step-intelligence .step-heading {
+  color: var(--framework-purple);
+}
+
+.step-adaptive .step-heading {
+  color: var(--framework-blue);
+}
+
+
+/* =========================================
+   CARD
+========================================= */
+
+.framework-card {
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+
+  flex: 1;
+
+  min-height: 415px;
+
+  overflow: visible;
+
+  border: 1.7px solid;
+  border-radius: 16px;
+
+  background: #ffffff;
+}
+
+
+/* 카드 색 */
+
+.step-learning .framework-card {
+  color: var(--framework-navy);
+  border-color: #718bd4;
+}
+
+.step-multimodal .framework-card {
+  color: #087f9d;
+  border-color: #78cce3;
+}
+
+.step-intelligence .framework-card {
+  color: var(--framework-purple);
+  border-color: #9b7ff5;
+}
+
+.step-adaptive .framework-card {
+  color: var(--framework-blue);
+  border-color: #6b9af5;
+}
+
+
+/* =========================================
+   NUMBER
+========================================= */
+
+.step-number {
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  width: 45px;
+  height: 45px;
+
+  margin: 18px auto 10px;
+
+  border-radius: 50%;
+
+  color: #ffffff;
+
+  font-size: 23px;
+  font-weight: 800;
+}
+
+
+.step-learning .step-number {
+  background: var(--framework-navy);
+}
+
+.step-multimodal .step-number {
+  background: var(--framework-cyan);
+}
+
+.step-intelligence .step-number {
+  background: var(--framework-purple);
+}
+
+.step-adaptive .step-number {
+  background: var(--framework-blue);
+}
+
+
+/* =========================================
+   CARD TITLE
+========================================= */
+
+.framework-card > h4 {
+  margin: 0;
+
+  text-align: center;
+
+  font-size: 18px;
+  font-weight: 800;
+  line-height: 1.3;
+
+  letter-spacing: -0.025em;
+}
+
+
+/* =========================================
+   MAIN VISUAL
+========================================= */
+
+.framework-main-visual {
+  position: relative;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  height: 166px;
+
+  margin: 5px 12px 0;
+}
+
+
+/* -----------------------------------------
+   STEP 1
+----------------------------------------- */
+
+.understand-visual {
+  position: relative;
+}
+
+.understand-visual .person-left,
+.understand-visual .person-right {
+  position: absolute;
+
+  bottom: 22px;
+
+  font-size: 73px;
+
+  font-weight: 200;
+}
+
+.understand-visual .person-left {
+  left: 28px;
+}
+
+.understand-visual .person-right {
+  right: 28px;
+
+  opacity: 0.6;
+}
+
+.understand-visual .dialogue {
+  position: absolute;
+
+  top: 18px;
+  left: 50%;
+
+  font-size: 55px;
+
+  transform: translateX(-50%);
+}
+
+
+/* -----------------------------------------
+   STEP 2
+----------------------------------------- */
+
+.multimodal-visual {
+  width: 190px;
+
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
+.multi-center {
+  position: absolute;
+
+  top: 50%;
+  left: 50%;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  width: 74px;
+  height: 74px;
+
+  border: 1.5px dashed var(--framework-cyan);
+  border-radius: 50%;
+
+  background: #ffffff;
+
+  transform: translate(-50%, -50%);
+
+  z-index: 2;
+}
+
+.multi-center span {
+  font-size: 45px;
+}
+
+
+.multi-node {
+  position: absolute;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  width: 47px;
+  height: 47px;
+
+  border: 1.5px solid #9bd9ea;
+  border-radius: 50%;
+
+  background: #ffffff;
+
+  z-index: 2;
+}
+
+.multi-node span {
+  font-size: 27px;
+}
+
+
+.multi-chat {
+  top: 12px;
+  left: 5px;
+}
+
+.multi-signal {
+  top: 12px;
+  right: 5px;
+}
+
+.multi-behavior {
+  bottom: 12px;
+  left: 5px;
+}
+
+.multi-digital {
+  right: 5px;
+  bottom: 12px;
+}
+
+
+/* 연결선 */
+
+.multimodal-visual::before,
+.multimodal-visual::after {
+  content: "";
+
+  position: absolute;
+
+  top: 50%;
+  left: 50%;
+
+  width: 130px;
+
+  border-top: 1.5px dashed #9bd9ea;
+
+  transform-origin: center;
+
+  z-index: 1;
+}
+
+.multimodal-visual::before {
+  transform:
+    translate(-50%, -50%)
+    rotate(32deg);
+}
+
+.multimodal-visual::after {
+  transform:
+    translate(-50%, -50%)
+    rotate(-32deg);
+}
+
+
+/* -----------------------------------------
+   STEP 3
+----------------------------------------- */
+
+.ai-visual {
+  overflow: hidden;
+}
+
+.ai-brain {
+  color: var(--framework-purple);
+
+  font-size: 148px;
+
+  font-weight: 200;
+}
+
+.ai-label {
+  position: absolute;
+
+  top: 50%;
+  left: 50%;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  width: 62px;
+  height: 62px;
+
+  border-radius: 7px;
+
+  background: var(--framework-purple);
+
+  color: #ffffff;
+
+  font-size: 32px;
+  font-weight: 800;
+
+  transform: translate(-50%, -50%);
+}
+
+
+/* -----------------------------------------
+   STEP 4
+----------------------------------------- */
+
+.adaptive-laptop {
+  color: var(--framework-blue);
+
+  font-size: 145px;
+
+  font-weight: 200;
+}
+
+.adaptive-chat {
+  position: absolute;
+
+  top: 23px;
+  right: 25px;
+
+  padding: 5px 8px;
+
+  border-radius: 7px;
+
+  background: var(--framework-blue);
+
+  color: #ffffff;
+
+  font-size: 36px;
+}
+
+
+/* =========================================
+   CARD ITEM GRID
+========================================= */
+
+.framework-card-items {
+  display: grid;
+
+  grid-template-columns: 1fr 1fr;
+
+  margin-top: auto;
+
+  border-top: 1px solid var(--framework-line);
+}
+
+
+.framework-card-item {
+  display: flex;
+
+  align-items: center;
+
+  gap: 8px;
+
+  min-height: 66px;
+
+  padding: 9px 10px;
+
+  font-size: 11px;
+  font-weight: 600;
+  line-height: 1.25;
+}
+
+
+.framework-card-item:nth-child(odd) {
+  border-right: 1px solid var(--framework-line);
+}
+
+.framework-card-item:nth-child(-n+2) {
+  border-bottom: 1px solid var(--framework-line);
+}
+
+
+.framework-card-item
+.material-symbols-outlined {
+  flex-shrink: 0;
+
+  font-size: 28px;
+
+  font-weight: 250;
+}
+
+
+.framework-card-item small {
+  font-size: 8px;
+}
+
+
+/* =========================================
+   OUTCOME
+========================================= */
+
+.framework-outcome {
+  display: grid;
+
+  grid-template-columns:
+    1.12fr
+    1.38fr
+    1fr;
+
+  align-items: stretch;
+
+  margin-top: 18px;
+
+  min-height: 103px;
+
+  overflow: hidden;
+
+  border: 1.7px solid var(--framework-blue);
+  border-radius: 13px;
+
+  color: var(--framework-navy);
+
+  background: #ffffff;
+}
+
+
+/* 왼쪽 */
+
+.outcome-main {
+  display: flex;
+
+  align-items: center;
+
+  padding: 13px 26px;
+
+  border-right: 1px solid #b7caec;
+}
+
+
+.outcome-people {
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  flex-shrink: 0;
+
+  width: 70px;
+  height: 70px;
+
+  margin-right: 23px;
+
+  border: 1.5px solid var(--framework-blue);
+  border-radius: 50%;
+}
+
+
+.outcome-people span {
+  color: var(--framework-blue);
+
+  font-size: 45px;
+}
+
+
+.outcome-heading {
+  color: var(--framework-blue);
+
+  font-size: 19px;
+  font-weight: 800;
+  line-height: 1.3;
+
+  letter-spacing: -0.025em;
+}
+
+
+/* 가운데 */
+
+.outcome-description {
+  display: flex;
+
+  align-items: center;
+
+  padding: 15px 32px;
+
+  border-right: 1px solid #b7caec;
+
+  color: #1c2b5a;
+
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 1.7;
+}
+
+
+/* 오른쪽 */
+
+.outcome-values {
+  display: grid;
+
+  grid-template-columns: repeat(3, 1fr);
+}
+
+
+.outcome-value {
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+  justify-content: center;
+
+  padding: 11px 7px;
+
+  text-align: center;
+}
+
+
+.outcome-value + .outcome-value {
+  border-left: 1px solid #b7caec;
+}
+
+
+.outcome-value
+.material-symbols-outlined {
+  margin-bottom: 5px;
+
+  color: var(--framework-navy);
+
+  font-size: 31px;
+}
+
+
+.outcome-value p {
+  margin: 0;
+
+  color: var(--framework-navy);
+
+  font-size: 9.5px;
+  font-weight: 700;
+  line-height: 1.3;
+}
+
+
+/* =========================================
+   TABLET
+========================================= */
+
+@media (max-width: 1000px) {
+
+  .framework-flow {
+    grid-template-columns: 1fr 1fr;
+    gap: 35px 28px;
+  }
+
+  .framework-step-header::after,
+  .framework-card::after {
+    display: none;
+  }
+
+  .framework-card {
+    min-height: 440px;
+  }
+
+  .framework-outcome {
+    grid-template-columns: 1fr 1.3fr;
+  }
+
+  .outcome-values {
+    grid-column: 1 / -1;
+
+    border-top: 1px solid #b7caec;
+  }
+
+  .outcome-description {
+    border-right: 0;
+  }
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 650px) {
+
+  .about-framework-section {
+    padding: 65px 0 75px;
+  }
+
+  .framework-container {
+    width: calc(100% - 32px);
+  }
+
+  .about-main-title {
+    font-size: 39px;
+  }
+
+  .about-description {
+    font-size: 16px;
+  }
+
+  .desktop-br {
+    display: none;
+  }
+
+  .framework-main-title {
+    margin-bottom: 24px;
+
+    font-size: 19px;
+  }
+
+  .framework-flow {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  .framework-step-header {
+    min-height: auto;
+
+    margin-bottom: 10px;
+  }
+
+  .framework-card {
+    min-height: 440px;
+  }
+
+  .step-heading {
+    font-size: 20px;
+  }
+
+  .step-subheading {
+    font-size: 13px;
+  }
+
+  .framework-outcome {
+    display: block;
+  }
+
+  .outcome-main {
+    border-right: 0;
+    border-bottom: 1px solid #b7caec;
+  }
+
+  .outcome-description {
+    padding: 20px 25px;
+
+    border-bottom: 1px solid #b7caec;
+  }
+
+  .outcome-values {
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    border-top: 0;
+  }
+}
+
+
+/* =========================================
+   VERY SMALL MOBILE
+========================================= */
+
+@media (max-width: 420px) {
+
+  .about-main-title {
+    font-size: 34px;
+  }
+
+  .framework-card-items {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .outcome-main {
+    padding: 18px;
+  }
+
+  .outcome-people {
+    width: 60px;
+    height: 60px;
+
+    margin-right: 15px;
+  }
+
+  .outcome-heading {
+    font-size: 17px;
+  }
+
+  .outcome-values {
+    grid-template-columns: 1fr;
+  }
+
+  .outcome-value {
+    flex-direction: row;
+
+    justify-content: flex-start;
+
+    gap: 12px;
+
+    padding: 12px 20px;
+
+    text-align: left;
+  }
+
+  .outcome-value + .outcome-value {
+    border-top: 1px solid #b7caec;
+    border-left: 0;
+  }
+
+  .outcome-value
+  .material-symbols-outlined {
+    margin: 0;
+  }
+
+  .outcome-value p br {
+    display: none;
   }
 }
