@@ -316,8 +316,9 @@ section[id] {
   white-space: nowrap;
 }
 
-.hero p:first-of-type {
-  font-size: 20px;
+.hero-text > b:first-of-type {
+  font-size: clamp(18px, 1.6vw, 22px);
+  font-weight: 700;
 }
 
 .hero-description {
