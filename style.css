@@ -175,64 +175,6 @@ a {
 }
 
 
-/* ================================
-   Tablet / Mobile Navigation
-================================ */
-
-@media (max-width: 960px) {
-
-  /* 햄버거 버튼 표시 */
-  .menu-toggle {
-    display: flex;
-  }
-
-  /* 메뉴 기본 상태 = 닫힘 */
-  .main-nav {
-    display: none;
-
-    position: absolute;
-    top: calc(100% + 8px);
-    right: 0;
-
-    width: min(300px, calc(100vw - 28px));
-
-    flex-direction: column;
-    gap: 0;
-
-    padding: 10px;
-
-    background: #ffffff;
-    border: 1px solid var(--line);
-    border-radius: 16px;
-
-    box-shadow: 0 16px 40px rgba(2, 23, 67, 0.14);
-
-    z-index: 1000;
-  }
-
-  /* 햄버거 버튼 클릭했을 때 */
-  .main-nav.active {
-    display: flex;
-  }
-
-  .main-nav a {
-    display: block;
-
-    padding: 13px 16px;
-
-    font-size: 15px;
-    font-weight: 600;
-
-    border-radius: 10px;
-  }
-
-  .main-nav a:hover {
-    background: var(--navy-light);
-    color: var(--navy-dark);
-  }
-}
-
-
 /* 메뉴로 이동했을 때
    sticky header에 제목이 가려지지 않도록 */
 section[id] {
@@ -743,84 +685,6 @@ section[id] {
 }
 
 
-/* 모바일 */
-@media (max-width: 620px) {
-  .container {
-    width: min(100% - 28px, var(--max-width));
-  }
-
-  .hero {
-    padding: 60px 0;
-  }
-
-  .hero h1 {
-    font-size: 36px;
-  }
-
-  .hero .eyebrow {
-    font-size: 14px;
-  }
-
-  .hero-description {
-    font-size: 17px;
-  }
-
-  .research-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .research-card {
-    min-height: 260px;
-  }
-
-  .section h2 {
-    font-size: 34px;
-  }
-
-.section p {
-  font-size: 16px;
-}
-
-  .contact-box {
-    padding: 36px 24px;
-    border-radius: 24px;
-  }
-
-  .footer-container {
-    flex-direction: column;
-  }
-}
-
-/* Responsive */
-
-@media (max-width: 960px) {
-
-
-  .hero-grid {
-    grid-template-columns: 1fr;
-    gap: 40px;
-  }
-
-  .research-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .project-item {
-    grid-template-columns: 1fr;
-    gap: 18px;
-  }
-
-  .split {
-    grid-template-columns: 1fr;
-    gap: 20px;
-  }
-
-  .section {
-    padding: 78px 0;
-  }
-}
-
-
 /* ========================================
    Compact Publications
 ======================================== */
@@ -1095,30 +959,6 @@ section[id] {
   line-height: 1.3;
 }
 
-/* ========================================
-   Mobile
-======================================== */
-
-@media (max-width: 620px) {
-
-  .publication-year-title {
-    font-size: 18px;
-  }
-
-  .publication-item {
-    padding: 9px 11px;
-  }
-
-  .publication-item h4 {
-    font-size: 14px;
-  }
-
-  .publication-authors,
-  .publication-venue {
-    font-size: 11.5px;
-  }
-
-}
 
 /* 구성원 그룹 */
 .member-group {
@@ -1252,27 +1092,6 @@ section[id] {
   text-decoration: underline;
 }
 
-@media (max-width: 900px) {
-  .member-grid {
-    grid-template-columns: 1fr;
-  }
-}
-
-@media (max-width: 520px) {
-  .member-card {
-    gap: 16px;
-    padding: 18px;
-  }
-
-  .member-image-wrap {
-    width: 92px;
-    height: 116px;
-  }
-
-  .member-info h4 {
-    font-size: 1.05rem;
-  }
-}
 
 /* ===================================
    Linked Research Project
@@ -1355,36 +1174,7 @@ section[id] {
 }
 
 
-/* ===================================
-   Mobile
-=================================== */
 
-@media (max-width: 720px) {
-
-  .project-card .linked-project {
-    padding-top: 17px;
-  }
-
-  .project-card .linked-project .linked-project-label {
-    font-size: 12px;
-  }
-
-  .project-card .linked-project .linked-project-title {
-    font-size: 14.5px;
-    line-height: 1.5;
-  }
-
-  /* 모바일에서는 2줄 바꿈 */
-  .project-card .linked-project .linked-project-meta {
-    font-size: 12px;
-    font-size: 11.5px;
-    line-height: 1.6;
-
-    white-space: normal;
-    word-break: keep-all;
-    overflow-wrap: break-word;
-  }
-}
 /* =========================================
    ABOUT THE LAB / RESEARCH FRAMEWORK
 ========================================= */
@@ -1942,11 +1732,51 @@ section[id] {
 }
 
 
+/* ===================================
+   Section Kicker - FINAL UNIFIED STYLE
+=================================== */
+
+.section-kicker {
+  margin: 0 0 18px !important;
+  padding: 0 !important;
+  font-size: 18px !important;
+  font-weight: 800 !important;
+  line-height: 1.2 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.08em !important;
+  color: var(--orange) !important;
+}
+
 /* =========================================
-   TABLET
+   RESPONSIVE
+   모든 반응형 CSS는 여기에서 관리
+========================================= */
+
+
+/* =========================================
+   1050px
+========================================= */
+
+@media (max-width: 1050px) {
+
+  .projects-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .project-card h3 {
+    min-height: auto;
+  }
+
+}
+
+
+/* =========================================
+   1000px
 ========================================= */
 
 @media (max-width: 1000px) {
+
+  /* Research Framework */
 
   .framework-flow {
     grid-template-columns: 1fr 1fr;
@@ -1968,18 +1798,203 @@ section[id] {
 
   .outcome-values {
     grid-column: 1 / -1;
-
     border-top: 1px solid #b7caec;
   }
 
   .outcome-description {
     border-right: 0;
   }
+
 }
 
 
 /* =========================================
-   MOBILE
+   960px
+   Tablet / Small Desktop
+========================================= */
+
+@media (max-width: 960px) {
+
+  /* -------------------------------
+     Navigation
+  -------------------------------- */
+
+  .menu-toggle {
+    display: flex;
+  }
+
+  .main-nav {
+    display: none;
+
+    position: absolute;
+    top: calc(100% + 8px);
+    right: 0;
+
+    width: min(300px, calc(100vw - 28px));
+
+    flex-direction: column;
+    gap: 0;
+
+    padding: 10px;
+
+    background: #ffffff;
+    border: 1px solid var(--line);
+    border-radius: 16px;
+
+    box-shadow: 0 16px 40px rgba(2, 23, 67, 0.14);
+
+    z-index: 1000;
+  }
+
+  .main-nav.active {
+    display: flex;
+  }
+
+  .main-nav a {
+    display: block;
+
+    padding: 13px 16px;
+
+    font-size: 15px;
+    font-weight: 600;
+
+    border-radius: 10px;
+  }
+
+  .main-nav a:hover {
+    background: var(--navy-light);
+    color: var(--navy-dark);
+  }
+
+
+  /* -------------------------------
+     Hero
+  -------------------------------- */
+
+  .hero-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+
+  /* -------------------------------
+     Research
+  -------------------------------- */
+
+  .research-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+
+  /* -------------------------------
+     Projects
+  -------------------------------- */
+
+  .projects-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .project-item {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+
+
+  /* -------------------------------
+     People / Split Layout
+  -------------------------------- */
+
+  .split {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+
+  /* -------------------------------
+     Common Section
+  -------------------------------- */
+
+  .section {
+    padding: 78px 0;
+  }
+
+}
+
+
+/* =========================================
+   900px
+========================================= */
+
+@media (max-width: 900px) {
+
+  .member-grid {
+    grid-template-columns: 1fr;
+  }
+
+}
+
+
+/* =========================================
+   720px
+========================================= */
+
+@media (max-width: 720px) {
+
+  /* -------------------------------
+     Projects
+  -------------------------------- */
+
+  .projects-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .project-card {
+    padding: 24px 22px 26px;
+  }
+
+  .project-card h3 {
+    min-height: auto;
+    font-size: 22px;
+  }
+
+  .projects-intro {
+    font-size: 14px;
+  }
+
+
+  /* -------------------------------
+     Linked Research Project
+  -------------------------------- */
+
+  .project-card .linked-project {
+    padding-top: 17px;
+  }
+
+  .project-card .linked-project .linked-project-label {
+    font-size: 12px;
+  }
+
+  .project-card .linked-project .linked-project-title {
+    font-size: 14.5px;
+    line-height: 1.5;
+  }
+
+  .project-card .linked-project .linked-project-meta {
+    font-size: 11.5px;
+    line-height: 1.6;
+
+    white-space: normal;
+    word-break: keep-all;
+    overflow-wrap: break-word;
+  }
+
+}
+
+
+/* =========================================
+   650px
+   Research Framework Mobile
 ========================================= */
 
 @media (max-width: 650px) {
@@ -2006,7 +2021,6 @@ section[id] {
 
   .framework-main-title {
     margin-bottom: 24px;
-
     font-size: 19px;
   }
 
@@ -2017,7 +2031,6 @@ section[id] {
 
   .framework-step-header {
     min-height: auto;
-
     margin-bottom: 10px;
   }
 
@@ -2044,22 +2057,173 @@ section[id] {
 
   .outcome-description {
     padding: 20px 25px;
-
     border-bottom: 1px solid #b7caec;
   }
 
   .outcome-values {
     display: grid;
-
     grid-template-columns: repeat(3, 1fr);
-
     border-top: 0;
   }
+
 }
 
 
 /* =========================================
-   VERY SMALL MOBILE
+   620px
+   Mobile Common
+========================================= */
+
+@media (max-width: 620px) {
+
+  /* -------------------------------
+     Container
+  -------------------------------- */
+
+  .container {
+    width: min(100% - 28px, var(--max-width));
+  }
+
+
+  /* -------------------------------
+     Hero
+  -------------------------------- */
+
+  .hero {
+    padding: 60px 0;
+  }
+
+  .hero h1 {
+    font-size: 36px;
+  }
+
+  .hero .eyebrow {
+    font-size: 14px;
+  }
+
+  .hero-description {
+    font-size: 17px;
+  }
+
+
+  /* -------------------------------
+     모든 Section Header 왼쪽 정렬
+  -------------------------------- */
+
+  .section-header {
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+
+    gap: 8px;
+
+    text-align: left;
+  }
+
+  .section-kicker {
+    margin: 0 0 8px !important;
+
+    text-align: left !important;
+  }
+
+  .section-header h2 {
+    margin: 0;
+
+    text-align: left;
+  }
+
+
+  /* -------------------------------
+     Research
+  -------------------------------- */
+
+  .research-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .research-card {
+    min-height: 260px;
+  }
+
+
+  /* -------------------------------
+     Common Section Title
+  -------------------------------- */
+
+  .section h2 {
+    font-size: 34px;
+  }
+
+
+  /* -------------------------------
+     Publications
+  -------------------------------- */
+
+  .publication-year-title {
+    font-size: 18px;
+  }
+
+  .publication-item {
+    padding: 9px 11px;
+  }
+
+  .publication-item h4 {
+    font-size: 14px;
+  }
+
+  .publication-item .publication-authors,
+  .publication-item .publication-venue {
+    font-size: 11.5px;
+  }
+
+
+  /* -------------------------------
+     Contact
+  -------------------------------- */
+
+  .contact-box {
+    padding: 36px 24px;
+    border-radius: 24px;
+  }
+
+
+  /* -------------------------------
+     Footer
+  -------------------------------- */
+
+  .footer-container {
+    flex-direction: column;
+  }
+
+}
+
+
+/* =========================================
+   520px
+========================================= */
+
+@media (max-width: 520px) {
+
+  .member-card {
+    gap: 16px;
+    padding: 18px;
+  }
+
+  .member-image-wrap {
+    width: 92px;
+    height: 116px;
+  }
+
+  .member-info h4 {
+    font-size: 1.05rem;
+  }
+
+}
+
+
+/* =========================================
+   420px
+   Very Small Mobile
 ========================================= */
 
 @media (max-width: 420px) {
@@ -2108,26 +2272,12 @@ section[id] {
     border-left: 0;
   }
 
-  .outcome-value
-  .material-symbols-outlined {
+  .outcome-value .material-symbols-outlined {
     margin: 0;
   }
 
   .outcome-value p br {
     display: none;
   }
-}
-/* ===================================
-   Section Kicker - FINAL UNIFIED STYLE
-=================================== */
 
-.section-kicker {
-  margin: 0 0 18px !important;
-  padding: 0 !important;
-  font-size: 18px !important;
-  font-weight: 800 !important;
-  line-height: 1.2 !important;
-  text-transform: uppercase !important;
-  letter-spacing: 0.08em !important;
-  color: var(--orange); !important;
 }
