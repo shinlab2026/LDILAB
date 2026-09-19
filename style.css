@@ -119,11 +119,52 @@ a {
 }
 
 .main-nav a {
+  position: relative;
+  padding: 24px 0 22px;
   transition: color 0.2s ease;
 }
 
-.main-nav a:hover {
+.main-nav a:hover,
+.main-nav a.active {
   color: var(--navy);
+}
+
+.main-nav a.active::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  bottom: 14px;
+  left: 0;
+  height: 2px;
+  background: var(--orange);
+  border-radius: 999px;
+}
+
+/* 각 메뉴는 스크롤 위치가 아닌 독립된 화면으로 전환된다. */
+.tab-panel[hidden] {
+  display: none !important;
+}
+
+.tab-panel.is-active {
+  animation: tab-panel-enter 0.8s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@keyframes tab-panel-enter {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .tab-panel.is-active {
+    animation: none;
+  }
 }
 
 /* ================================
@@ -1884,13 +1925,18 @@ section[id] {
 
   .main-nav a {
     display: block;
-
     padding: 13px 16px;
-
     font-size: 15px;
     font-weight: 600;
-
     border-radius: 10px;
+  }
+
+  .main-nav a.active {
+    background: var(--navy-light);
+  }
+
+  .main-nav a.active::after {
+    display: none;
   }
 
   .main-nav a:hover {
