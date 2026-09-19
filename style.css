@@ -971,6 +971,29 @@ section[id] {
   color: #0b2455;
 }
 
+/* 졸업생 */
+.alumni-section {
+  margin-top: 72px;
+  padding-top: 40px;
+  border-top: 1px solid #dce4f1;
+}
+
+.alumni-title {
+  margin: 0 0 32px;
+  font-size: 2rem;
+  color: #0b2455;
+}
+
+.alumni-group + .alumni-group {
+  margin-top: 48px;
+}
+
+.alumni-group-title {
+  margin: 0 0 20px;
+  font-size: 1.25rem;
+  color: #274f91;
+}
+
 /* 구성원 목록 */
 .member-grid {
   display: grid;

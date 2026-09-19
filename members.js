@@ -39,84 +39,106 @@ function renderMembers(members) {
     return groups;
   }, {});
 
-  const groupOrder = [
+  const activeGroupOrder = [
     "Professor",
     "Ph.D. Students",
-    "Master’s Students",
-    "Ph.D.",
-    "Master"
+    "Master’s Students"
   ];
 
-  const groups = Object.keys(groupedByRole).sort((a, b) => {
-    const aIndex = groupOrder.indexOf(a);
-    const bIndex = groupOrder.indexOf(b);
+  const alumniGroupOrder = ["Alumni", "Ph.D.", "Master"];
+  const isAlumniGroup = group => alumniGroupOrder.includes(group);
 
-    if (aIndex === -1 && bIndex === -1) return a.localeCompare(b);
-    if (aIndex === -1) return 1;
-    if (bIndex === -1) return -1;
+  const activeGroups = Object.keys(groupedByRole)
+    .filter(group => !isAlumniGroup(group))
+    .sort((a, b) => {
+      const aIndex = activeGroupOrder.indexOf(a);
+      const bIndex = activeGroupOrder.indexOf(b);
 
-    return aIndex - bIndex;
-  });
+      if (aIndex === -1 && bIndex === -1) return a.localeCompare(b);
+      if (aIndex === -1) return 1;
+      if (bIndex === -1) return -1;
 
-  membersList.innerHTML = groups.map(group => `
+      return aIndex - bIndex;
+    });
+
+  const alumniGroups = alumniGroupOrder.filter(group => groupedByRole[group]);
+
+  const renderMemberCards = group => `
+    <div class="member-grid">
+      ${groupedByRole[group].map(member => `
+        <article class="member-card">
+          <div class="member-image-wrap">
+            <img
+              src="${escapeAttribute(member.image || "images/none.png")}"
+              alt="${escapeAttribute(member.name_en || member.name_ko || "Lab member")}"
+              class="member-image"
+              onerror="this.onerror=null; this.src='images/none.png'"
+            />
+          </div>
+
+          <div class="member-info">
+            <h4>
+              ${escapeHTML(member.name_ko || "")}
+              ${member.name_en ? `<span>${escapeHTML(member.name_en)}</span>` : ""}
+            </h4>
+
+            <p class="member-role">
+              ${escapeHTML(member.role || "")}
+            </p>
+
+            ${member.interests ? `
+              <div class="member-interests">
+                ${member.interests.split(";").map(item => `
+                  <span>${escapeHTML(item.trim())}</span>
+                `).join("")}
+              </div>
+            ` : ""}
+
+            <div class="member-links">
+
+            ${member.email ? `
+            <a
+              class="member-email"
+              href="mailto:${escapeAttribute(member.email)}"
+            >
+              <span class="email-label">Email</span>
+              ${escapeHTML(member.email)}
+            </a>
+            ` : ""}
+
+            ${member.website ? `
+            <a href="${escapeAttribute(member.website)}" target="_blank" rel="noopener">
+              Website
+            </a>
+            ` : ""}
+
+            </div>
+          </div>
+        </article>
+      `).join("")}
+    </div>
+  `;
+
+  const activeMarkup = activeGroups.map(group => `
     <div class="member-group">
       <h3 class="member-group-title">${escapeHTML(group)}</h3>
-
-      <div class="member-grid">
-        ${groupedByRole[group].map(member => `
-          <article class="member-card">
-            <div class="member-image-wrap">
-              <img 
-                src="${escapeAttribute(member.image || "images/default-profile.jpg")}" 
-                alt="${escapeAttribute(member.name_en || member.name_ko || "Lab member")}" 
-                class="member-image"
-                onerror="this.src='images/default-profile.jpg'"
-              />
-            </div>
-
-            <div class="member-info">
-              <h4>
-                ${escapeHTML(member.name_ko || "")}
-                ${member.name_en ? `<span>${escapeHTML(member.name_en)}</span>` : ""}
-              </h4>
-
-              <p class="member-role">
-                ${escapeHTML(member.role || "")}
-              </p>
-
-              ${member.interests ? `
-                <div class="member-interests">
-                  ${member.interests.split(";").map(item => `
-                    <span>${escapeHTML(item.trim())}</span>
-                  `).join("")}
-                </div>
-              ` : ""}
-
-              <div class="member-links">
-              
-              ${member.email ? `
-              <a 
-                class="member-email"
-                href="mailto:${escapeAttribute(member.email)}"
-              >
-                <span class="email-label">Email</span>
-                ${escapeHTML(member.email)}
-              </a>
-              ` : ""}
-              
-              ${member.website ? `
-              <a href="${escapeAttribute(member.website)}" target="_blank" rel="noopener">
-                Website
-              </a>
-              ` : ""}
-              
-              </div>
-            </div>
-          </article>
-        `).join("")}
-      </div>
+      ${renderMemberCards(group)}
     </div>
   `).join("");
+
+  const alumniMarkup = alumniGroups.length ? `
+    <section class="alumni-section" aria-labelledby="alumni-title">
+      <h3 id="alumni-title" class="alumni-title">Alumni</h3>
+      ${alumniGroups.map(group => `
+        <div class="alumni-group">
+          ${group === "Alumni" ? "" : `<h4 class="alumni-group-title">${escapeHTML(group)}</h4>`}
+          ${renderMemberCards(group)}
+        </div>
+      `).join("")}
+    </section>
+  ` : "";
+
+  membersList.innerHTML = activeMarkup + alumniMarkup;
 }
 
 function escapeHTML(text) {
