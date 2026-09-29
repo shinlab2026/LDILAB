@@ -33,6 +33,7 @@
       </button>
 
       <nav class="main-nav" id="main-nav" aria-label="Primary navigation">
+        <a href="#home">Home</a>
         <a href="#mission">About the Lab</a>
         <a href="#research">Research Areas</a>
         <a href="#projects">Projects</a>
@@ -702,6 +703,11 @@
   const tabPanels = Array.from(document.querySelectorAll("main > .tab-panel"));
   const tabLinks = Array.from(document.querySelectorAll('a[href^="#"]'));
 
+  // 탭 이동 시 브라우저의 이전 스크롤 위치 자동 복원을 막는다.
+  if ("scrollRestoration" in window.history) {
+    window.history.scrollRestoration = "manual";
+  }
+
   function getTabIdFromHref(href) {
     return href.startsWith("#") ? href.slice(1) : "";
   }
@@ -797,6 +803,13 @@
 
   // 브라우저 뒤로/앞으로 가기에 맞춰 화면 전환
   window.addEventListener("popstate", function () {
+    showTab(getCurrentTabId());
+    closeMobileMenu();
+  });
+
+
+  // 주소창에서 해시를 직접 변경한 경우에도 해당 화면을 표시
+  window.addEventListener("hashchange", function () {
     showTab(getCurrentTabId());
     closeMobileMenu();
   });
