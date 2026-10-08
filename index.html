@@ -35,7 +35,6 @@
       <nav class="main-nav" id="main-nav" aria-label="Primary navigation">
         <a href="#home">Home</a>
         <a href="#mission">About the Lab</a>
-        <a href="#research">Research Areas</a>
         <a href="#projects">Projects</a>
         <a href="#people">People</a>
         <a href="#publications">Publications</a>
@@ -398,11 +397,9 @@
         </div>
     
       </div>
-    </section>
 
-
-    <!-- Research Areas -->
-    <section id="research" class="section research-section tab-panel">
+    <!-- Research Areas: About the Lab 탭에 통합 -->
+    <section id="research" class="section research-section about-research-area">
       <div class="container">
         <div class="section-header">
           <p class="section-kicker">Core Research Areas</p>
@@ -446,6 +443,8 @@
           </div>
         </div>
       </div>
+    </section>
+
     </section>
 
 
@@ -618,6 +617,24 @@
           </article>
     
         </div>
+
+        <section class="project-history-section" aria-labelledby="project-history-title">
+          <div class="project-history-heading">
+            <p class="section-kicker">Project History</p>
+            <h3 id="project-history-title">Research project history</h3>
+          </div>
+
+          <div class="project-history-columns" aria-hidden="true">
+            <span>Title</span>
+            <span>Organization</span>
+            <span>Period</span>
+            <span>Status</span>
+          </div>
+
+          <div id="project-history-list" class="project-history-list" aria-live="polite">
+            <p>Loading project history...</p>
+          </div>
+        </section>
       </div>
     </section>
 
@@ -655,10 +672,6 @@
     
       <button class="filter-btn" data-filter="Conference Paper">
         Conference Papers
-      </button>
-    
-      <button class="filter-btn" data-filter="Project">
-        Projects
       </button>
     
       <button class="filter-btn" data-filter="Award">
@@ -714,8 +727,13 @@
 
   function getCurrentTabId() {
     const hashTabId = window.location.hash.slice(1);
-    return tabPanels.some(panel => panel.id === hashTabId)
-      ? hashTabId
+    const legacyTabAliases = {
+      research: "mission"
+    };
+    const resolvedTabId = legacyTabAliases[hashTabId] || hashTabId;
+
+    return tabPanels.some(panel => panel.id === resolvedTabId)
+      ? resolvedTabId
       : "home";
   }
 

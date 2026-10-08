@@ -1,9 +1,11 @@
 const SHEET_CSV_URL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vSBL4dJvTCXAPrJTXLtM2SMQV6-YQML6a0GE9bhC08DRD_AEGPbsqcUPCS0eWm9oHTAy-70aHJ68vaa/pub?gid=0&single=true&output=csv";
 
 const publicationsList = document.getElementById("publications-list");
+const projectHistoryList = document.getElementById("project-history-list");
 const filterButtons = document.querySelectorAll(".filter-btn");
 
 let allPublications = [];
+let allProjects = [];
 
 
 /* =========================
@@ -17,19 +19,30 @@ Papa.parse(SHEET_CSV_URL, {
 
   complete: function(results) {
 
-    allPublications = results.data
+    const allEntries = results.data
 
       .filter(pub => pub.title && pub.year)
 
-      .map(pub => ({
+      .map((pub, sheetRowIndex) => ({
         ...pub,
         type: (pub.type || "").trim(),
-        year: (pub.year || "").trim()
+        year: (pub.year || "").trim(),
+        sheetRowIndex
       }))
 
       .sort((a, b) => Number(b.year) - Number(a.year));
 
+    allProjects = allEntries
+      .filter(pub => pub.type === "Project")
+      .sort((a, b) => {
+        const yearDifference = Number(b.year) - Number(a.year);
+
+        return yearDifference || b.sheetRowIndex - a.sheetRowIndex;
+      });
+    allPublications = allEntries.filter(pub => pub.type !== "Project");
+
     renderPublications(allPublications);
+    renderProjectHistory(allProjects);
   },
 
   error: function(error) {
@@ -41,9 +54,68 @@ Papa.parse(SHEET_CSV_URL, {
       </p>
     `;
 
+    if (projectHistoryList) {
+      projectHistoryList.innerHTML = `
+        <p class="error-message">
+          Project history could not be loaded.
+          Please check the spreadsheet link.
+        </p>
+      `;
+    }
+
     console.error("CSV loading error:", error);
   }
 });
+
+
+/* =========================
+   Render project history
+========================= */
+
+function renderProjectHistory(projects) {
+  if (!projectHistoryList) return;
+
+  if (!projects.length) {
+    projectHistoryList.innerHTML =
+      "<p class='no-publications'>No project history found.</p>";
+    return;
+  }
+
+  projectHistoryList.innerHTML = projects.map(project => {
+    const status = (project.status || "").trim();
+    const normalizedStatus = status.toLowerCase();
+    const statusClass = normalizedStatus === "ongoing"
+      ? "is-ongoing"
+      : normalizedStatus === "completed"
+        ? "is-completed"
+        : "is-unknown";
+
+    return `
+      <article class="project-history-item">
+        <h4 class="project-history-title">
+          ${escapeHTML(project.title)}
+        </h4>
+
+        <p class="project-history-organization">
+          <span class="project-history-mobile-label">Organization</span>
+          ${escapeHTML(project.venue || "—")}
+        </p>
+
+        <p class="project-history-period">
+          <span class="project-history-mobile-label">Period</span>
+          ${escapeHTML(project.year)}
+        </p>
+
+        <p class="project-history-status">
+          <span class="project-history-mobile-label">Status</span>
+          <span class="project-status-badge ${statusClass}">
+            ${escapeHTML(status || "—")}
+          </span>
+        </p>
+      </article>
+    `;
+  }).join("");
+}
 
 
 /* =========================
